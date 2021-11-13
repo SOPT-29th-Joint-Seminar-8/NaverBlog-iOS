@@ -1,0 +1,19 @@
+disabled_rules:
+  - line_length
+  - nesting
+  - empty_count
+  - trailing_whitespace
+opt_in_rules:
+  - empty_count
+  - force_unwrapping
+included:
+  - NaverBlog-iOS
+excluded:
+  - NaverBlog-iOS/NaverBlog-iOS/AppDelegate.swift
+  - NaverBlog-iOS/NaverBlog-iOS/SceneDelegate.swifts
+force_cast: warning
+force_try:
+  severity: warning
+type_body_length:
+  - 300
+  - 400
