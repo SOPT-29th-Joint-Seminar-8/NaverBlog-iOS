@@ -9,8 +9,7 @@ opt_in_rules:
 included:
   - NaverBlog-iOS
 excluded:
-  - NaverBlog-iOS/NaverBlog-iOS/AppDelegate.swift
-  - NaverBlog-iOS/NaverBlog-iOS/SceneDelegate.swifts
+  - NaverBlog-iOS/NaverBlog-iOS/Resources/Supports
 force_cast: warning
 force_try:
   severity: warning
