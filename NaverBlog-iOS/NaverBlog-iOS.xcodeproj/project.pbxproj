@@ -33,6 +33,7 @@
 		925446822740095400EDBD94 /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925446812740095400EDBD94 /* Feed.xcassets */; };
 		9254468427400E6100EDBD94 /* Recommend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9254468327400E6100EDBD94 /* Recommend.storyboard */; };
 		9254468627400FEF00EDBD94 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9254468527400FEF00EDBD94 /* MyPage.storyboard */; };
+		925446882740FBAE00EDBD94 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925446872740FBAE00EDBD94 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		925446812740095400EDBD94 /* Feed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Feed.xcassets; sourceTree = "<group>"; };
 		9254468327400E6100EDBD94 /* Recommend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Recommend.storyboard; sourceTree = "<group>"; };
 		9254468527400FEF00EDBD94 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		925446872740FBAE00EDBD94 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				9254463F273FF70A00EDBD94 /* Assets.xcassets */,
+				925446872740FBAE00EDBD94 /* Images.xcassets */,
 				925446792740044700EDBD94 /* Colors.xcassets */,
 				9254467B2740069E00EDBD94 /* TabBar.xcassets */,
 				9254467D274006D200EDBD94 /* Keyboard.xcassets */,
@@ -287,6 +290,7 @@
 				925446772740017D00EDBD94 /* NanumBarunGothicUltraLight.otf in Resources */,
 				925446802740091000EDBD94 /* Navigation.xcassets in Resources */,
 				925446742740017D00EDBD94 /* NanumBarunGothic.otf in Resources */,
+				925446882740FBAE00EDBD94 /* Images.xcassets in Resources */,
 				925446822740095400EDBD94 /* Feed.xcassets in Resources */,
 				92544643273FF70A00EDBD94 /* LaunchScreen.storyboard in Resources */,
 				9254467C2740069E00EDBD94 /* TabBar.xcassets in Resources */,
