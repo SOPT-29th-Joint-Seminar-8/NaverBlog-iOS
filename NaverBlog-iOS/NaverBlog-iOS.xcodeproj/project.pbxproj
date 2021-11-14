@@ -34,6 +34,9 @@
 		9254468427400E6100EDBD94 /* Recommend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9254468327400E6100EDBD94 /* Recommend.storyboard */; };
 		9254468627400FEF00EDBD94 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9254468527400FEF00EDBD94 /* MyPage.storyboard */; };
 		925446882740FBAE00EDBD94 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925446872740FBAE00EDBD94 /* Images.xcassets */; };
+		9254468A2741008500EDBD94 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925446892741008500EDBD94 /* CustomTabBarController.swift */; };
+		9254468F2741017200EDBD94 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254468E2741017200EDBD94 /* UIColor+.swift */; };
+		925446912741064100EDBD94 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925446902741064100EDBD94 /* CALayer+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		9254468327400E6100EDBD94 /* Recommend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Recommend.storyboard; sourceTree = "<group>"; };
 		9254468527400FEF00EDBD94 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		925446872740FBAE00EDBD94 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		925446892741008500EDBD94 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		9254468E2741017200EDBD94 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		925446902741064100EDBD94 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 		9254464B273FF71800EDBD94 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9254468D2741016200EDBD94 /* Extensions */,
 				92544654273FF82800EDBD94 /* Assets */,
 				9254464C273FF77900EDBD94 /* Consts */,
 				92544653273FF7F000EDBD94 /* Supports */,
@@ -201,8 +208,8 @@
 		92544659273FF8D600EDBD94 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				9254465C273FF95D00EDBD94 /* MyPageVC.swift */,
-				9254468527400FEF00EDBD94 /* MyPage.storyboard */,
+				9254468C2741009300EDBD94 /* VCs */,
+				9254468B2741008E00EDBD94 /* Storyboards */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -224,6 +231,32 @@
 				925446712740017A00EDBD94 /* NanumBarunGothicUltraLight.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9254468B2741008E00EDBD94 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9254468527400FEF00EDBD94 /* MyPage.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9254468C2741009300EDBD94 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				9254465C273FF95D00EDBD94 /* MyPageVC.swift */,
+				925446892741008500EDBD94 /* CustomTabBarController.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		9254468D2741016200EDBD94 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9254468E2741017200EDBD94 /* UIColor+.swift */,
+				925446902741064100EDBD94 /* CALayer+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,8 +352,11 @@
 				9254465D273FF95D00EDBD94 /* MyPageVC.swift in Sources */,
 				92544637273FF70900EDBD94 /* AppDelegate.swift in Sources */,
 				9254466F273FFAFB00EDBD94 /* TabBarController.swift in Sources */,
+				9254468A2741008500EDBD94 /* CustomTabBarController.swift in Sources */,
 				92544639273FF70900EDBD94 /* SceneDelegate.swift in Sources */,
 				9254465F273FF98000EDBD94 /* NotificationVC.swift in Sources */,
+				925446912741064100EDBD94 /* CALayer+.swift in Sources */,
+				9254468F2741017200EDBD94 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
