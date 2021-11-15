@@ -8,10 +8,10 @@
 import UIKit
 
 class CustomTabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         initUI()
         setTabs()
         setMiddleTab()
@@ -22,19 +22,8 @@ class CustomTabBarController: UITabBarController {
 
 extension CustomTabBarController {
     private func initUI() {
-        UITabBar.appearance().barTintColor = .white
-        UITabBar.appearance().isTranslucent = false
-        UITabBar.appearance().tintColor = .black
-        tabBar.layer.setShadow(color: .gray, alpha: 0.3, x: 0, y: 0, blur: 12)
-        
-        if #available(iOS 15, *) {
-            let appearance = UITabBarAppearance()
-            let tabBar = UITabBar()
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = .white
-            tabBar.standardAppearance = appearance;
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-        }
+        UITabBar.clearShadow()
+        tabBar.layer.applyShadow(color: .gray, alpha: 0.3, x: 0, y: 0, blur: 12)
     }
 }
 
@@ -63,7 +52,7 @@ extension CustomTabBarController {
         let tabs =  [feedTab, recommendTab, tab, notificationTab, myTab]
         
         self.setViewControllers(tabs, animated: false)
-        self.selectedViewController = feedTab
+        self.selectedViewController = myTab
     }
 }
 
@@ -85,8 +74,6 @@ extension CustomTabBarController {
         
         writeTab.setImage(UIImage(named: "icWriteStroke"), for: .normal)
         writeTab.addTarget(self, action: #selector(touchUpWriteTab(sender:)), for: .touchUpInside)
-        
-        view.layoutIfNeeded()
     }
     
     @objc
@@ -94,4 +81,5 @@ extension CustomTabBarController {
         selectedIndex = 2
     }
 }
+
 

@@ -37,6 +37,11 @@
 		9254468A2741008500EDBD94 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925446892741008500EDBD94 /* CustomTabBarController.swift */; };
 		9254468F2741017200EDBD94 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254468E2741017200EDBD94 /* UIColor+.swift */; };
 		925446912741064100EDBD94 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925446902741064100EDBD94 /* CALayer+.swift */; };
+		925446942741434800EDBD94 /* MyPageDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925446932741434800EDBD94 /* MyPageDataModel.swift */; };
+		925446992741441C00EDBD94 /* MyPageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925446972741441C00EDBD94 /* MyPageTVC.swift */; };
+		9254469A2741441C00EDBD94 /* MyPageTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925446982741441C00EDBD94 /* MyPageTVC.xib */; };
+		925446B0274186BF00EDBD94 /* MyPageTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925446AF274186BF00EDBD94 /* MyPageTableHeaderView.xib */; };
+		92B045712742352F0030B923 /* UITabBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B045702742352F0030B923 /* UITabBar+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +77,11 @@
 		925446892741008500EDBD94 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		9254468E2741017200EDBD94 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		925446902741064100EDBD94 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
+		925446932741434800EDBD94 /* MyPageDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDataModel.swift; sourceTree = "<group>"; };
+		925446972741441C00EDBD94 /* MyPageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTVC.swift; sourceTree = "<group>"; };
+		925446982741441C00EDBD94 /* MyPageTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageTVC.xib; sourceTree = "<group>"; };
+		925446AF274186BF00EDBD94 /* MyPageTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageTableHeaderView.xib; sourceTree = "<group>"; };
+		92B045702742352F0030B923 /* UITabBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				9254468C2741009300EDBD94 /* VCs */,
-				9254468B2741008E00EDBD94 /* Storyboards */,
+				9254468B2741008E00EDBD94 /* Views */,
+				925446922741431E00EDBD94 /* Models */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -233,12 +244,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		9254468B2741008E00EDBD94 /* Storyboards */ = {
+		9254468B2741008E00EDBD94 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9254468527400FEF00EDBD94 /* MyPage.storyboard */,
+				925446A0274153E000EDBD94 /* HeaderViews */,
+				92544696274143E900EDBD94 /* Cells */,
+				92544695274143D600EDBD94 /* Storyboards */,
 			);
-			path = Storyboards;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9254468C2741009300EDBD94 /* VCs */ = {
@@ -255,8 +268,42 @@
 			children = (
 				9254468E2741017200EDBD94 /* UIColor+.swift */,
 				925446902741064100EDBD94 /* CALayer+.swift */,
+				92B045702742352F0030B923 /* UITabBar+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		925446922741431E00EDBD94 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				925446932741434800EDBD94 /* MyPageDataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		92544695274143D600EDBD94 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9254468527400FEF00EDBD94 /* MyPage.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		92544696274143E900EDBD94 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				925446982741441C00EDBD94 /* MyPageTVC.xib */,
+				925446972741441C00EDBD94 /* MyPageTVC.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		925446A0274153E000EDBD94 /* HeaderViews */ = {
+			isa = PBXGroup;
+			children = (
+				925446AF274186BF00EDBD94 /* MyPageTableHeaderView.xib */,
+			);
+			path = HeaderViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,10 +374,12 @@
 				925446822740095400EDBD94 /* Feed.xcassets in Resources */,
 				92544643273FF70A00EDBD94 /* LaunchScreen.storyboard in Resources */,
 				9254467C2740069E00EDBD94 /* TabBar.xcassets in Resources */,
+				925446B0274186BF00EDBD94 /* MyPageTableHeaderView.xib in Resources */,
 				9254467E274006D200EDBD94 /* Keyboard.xcassets in Resources */,
 				9254467A2740044700EDBD94 /* Colors.xcassets in Resources */,
 				9254468627400FEF00EDBD94 /* MyPage.storyboard in Resources */,
 				92544640273FF70A00EDBD94 /* Assets.xcassets in Resources */,
+				9254469A2741441C00EDBD94 /* MyPageTVC.xib in Resources */,
 				9254463E273FF70900EDBD94 /* Feed.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,12 +399,15 @@
 				9254463B273FF70900EDBD94 /* FeedVC.swift in Sources */,
 				9254464E273FF78600EDBD94 /* Const.swift in Sources */,
 				9254465D273FF95D00EDBD94 /* MyPageVC.swift in Sources */,
+				925446942741434800EDBD94 /* MyPageDataModel.swift in Sources */,
 				92544637273FF70900EDBD94 /* AppDelegate.swift in Sources */,
 				9254466F273FFAFB00EDBD94 /* TabBarController.swift in Sources */,
 				9254468A2741008500EDBD94 /* CustomTabBarController.swift in Sources */,
 				92544639273FF70900EDBD94 /* SceneDelegate.swift in Sources */,
+				92B045712742352F0030B923 /* UITabBar+.swift in Sources */,
 				9254465F273FF98000EDBD94 /* NotificationVC.swift in Sources */,
 				925446912741064100EDBD94 /* CALayer+.swift in Sources */,
+				925446992741441C00EDBD94 /* MyPageTVC.swift in Sources */,
 				9254468F2741017200EDBD94 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

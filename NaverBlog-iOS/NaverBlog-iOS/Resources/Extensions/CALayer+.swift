@@ -8,16 +8,17 @@
 import UIKit
 
 extension CALayer {
-  func setShadow(
-    color: UIColor = UIColor(red: 135/255, green: 135/255, blue: 135/255, alpha: 0.02),
-    alpha: Float = 0.5,
-    x: CGFloat = 2,
-    y: CGFloat = 2,
-    blur: CGFloat = 4
-  ) {
-    shadowColor = color.cgColor
-    shadowOpacity = alpha
-    shadowOffset = CGSize(width: x, height: y)
-    shadowRadius = blur / 1.0
-  }
+    // CALayer를 상속 받고 있는 객체들에 그림자 적용 가능 
+    func applyShadow(
+        color: UIColor = .black,
+        alpha: Float = 0.5,
+        x: CGFloat = 0,
+        y: CGFloat = 2,
+        blur: CGFloat = 4
+    ) {
+        shadowColor = color.cgColor
+        shadowOpacity = alpha
+        shadowOffset = CGSize(width: x, height: y)
+        shadowRadius = blur / 2.0
+    }
 }
