@@ -34,6 +34,7 @@
 		9254468427400E6100EDBD94 /* Recommend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9254468327400E6100EDBD94 /* Recommend.storyboard */; };
 		9254468627400FEF00EDBD94 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9254468527400FEF00EDBD94 /* MyPage.storyboard */; };
 		925446882740FBAE00EDBD94 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925446872740FBAE00EDBD94 /* Images.xcassets */; };
+		E2B3E2652742E23E0087A6AC /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E2642742E23E0087A6AC /* CustomNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		9254468327400E6100EDBD94 /* Recommend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Recommend.storyboard; sourceTree = "<group>"; };
 		9254468527400FEF00EDBD94 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		925446872740FBAE00EDBD94 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E2B3E2642742E23E0087A6AC /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +178,7 @@
 		92544656273FF86E00EDBD94 /* Recommend */ = {
 			isa = PBXGroup;
 			children = (
-				92544662273FF99900EDBD94 /* RecommendVC.swift */,
+				E2B3E2632742E2210087A6AC /* VCs */,
 				9254468327400E6100EDBD94 /* Recommend.storyboard */,
 			);
 			path = Recommend;
@@ -224,6 +226,15 @@
 				925446712740017A00EDBD94 /* NanumBarunGothicUltraLight.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E2B3E2632742E2210087A6AC /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				92544662273FF99900EDBD94 /* RecommendVC.swift */,
+				E2B3E2642742E23E0087A6AC /* CustomNavigationBar.swift */,
+			);
+			path = VCs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +325,7 @@
 				92544663273FF99900EDBD94 /* RecommendVC.swift in Sources */,
 				92544650273FF7C500EDBD94 /* ViewController.swift in Sources */,
 				92544661273FF98C00EDBD94 /* WriteVC.swift in Sources */,
+				E2B3E2652742E23E0087A6AC /* CustomNavigationBar.swift in Sources */,
 				9254463B273FF70900EDBD94 /* FeedVC.swift in Sources */,
 				9254464E273FF78600EDBD94 /* Const.swift in Sources */,
 				9254465D273FF95D00EDBD94 /* MyPageVC.swift in Sources */,
