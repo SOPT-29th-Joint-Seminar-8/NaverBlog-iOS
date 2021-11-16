@@ -65,11 +65,11 @@ extension CustomTabBarController {
         
         var writeTabFrame = writeTab.frame
         writeTabFrame.origin.y = view.bounds.height - writeTabFrame.height - 50
-        writeTabFrame.origin.x = view.bounds.width/2 - writeTabFrame.size.width/2
+        writeTabFrame.origin.x = view.bounds.width / 2 - writeTabFrame.size.width / 2
         writeTab.frame = writeTabFrame
         
         writeTab.backgroundColor = UIColor.blogGreen
-        writeTab.layer.cornerRadius = writeTabFrame.height/2
+        writeTab.layer.cornerRadius = writeTabFrame.height / 2
         view.addSubview(writeTab)
         
         writeTab.setImage(UIImage(named: "icWriteStroke"), for: .normal)
