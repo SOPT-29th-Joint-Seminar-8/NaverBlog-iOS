@@ -11,6 +11,7 @@ extension Const {
     struct ViewController {
             struct Name {
                 static let TabBar = "TabBarController"
+                static let CustomTabBarController = "CustomTabBarController"
                 static let Navigation = "NavigationController"
                 
                 static let Feed = "FeedVC"
