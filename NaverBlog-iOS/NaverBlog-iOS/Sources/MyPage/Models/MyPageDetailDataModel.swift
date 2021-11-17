@@ -13,5 +13,21 @@ struct MyPageDetailDataModel {
     var comment: String
     var time: String
     var likeCount: Int
-    var isHide: Bool
+    
+    var isOpen: Bool
+    
+    var reply: [ReplyDataModel]
+    
+    mutating func dateFormat() -> String {
+        guard let s = self.time.split(separator: " ").first else { return "??" }
+        return String(s)
+    }
+}
+
+struct ReplyDataModel {
+    var userImage: String
+    var userName: String
+    var comment: String
+    var time: String
+    var likeCount: Int
 }

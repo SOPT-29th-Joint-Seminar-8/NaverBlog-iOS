@@ -8,7 +8,7 @@
 import UIKit
 
 class MyPageDetailVC: UIViewController {
-
+    
     // MARK: - UI
     
     @IBOutlet weak var cutomNavigationBar: UIView!
@@ -48,6 +48,7 @@ class MyPageDetailVC: UIViewController {
     
     // MARK: - Properties
     
+    private var replyList = [ReplyDataModel]()
     private var commentList = [MyPageDetailDataModel]()
     
     // MARK: - Life Cycle
@@ -63,8 +64,8 @@ class MyPageDetailVC: UIViewController {
         
         initUI()
         setToolBar()
-        setTableView()
         setData()
+        setTableView()
     }
 }
 
@@ -126,7 +127,7 @@ extension MyPageDetailVC {
         let fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         fixedSpace.width = 20.0
         
-        toolbar.setItems([fixedSpace, userImageButton, fixedSpace, emojiButton, fixedSpace, cameraButton, fixedSpace, tagButton, fixedSpace, lockButton], animated: false)
+        toolbar.setItems([fixedSpace, userImageButton, fixedSpace, emojiButton, fixedSpace, cameraButton, tagButton, fixedSpace, lockButton], animated: false)
         textField.inputAccessoryView = toolbar
     }
     
@@ -149,9 +150,36 @@ extension MyPageDetailVC {
     
     private func setData() {
         commentList.append(contentsOf: [
-            MyPageDetailDataModel(userImage: "icColorTag", userName: "채채", comment: "디자인 잘 하고 싶다 ❤❤✌", time: "2020. 8. 26. 19:05", likeCount: 1, isHide: true),
-            MyPageDetailDataModel(userImage: "icColorTag", userName: "솝트 디자인", comment: "홍대입구역 한빛 대관 리더스홀\n(서대문구 연희로2길 76 한빛빌딩)\n시간 : 2시 - 5시 (3시간)", time: "2020. 8. 24. 20:05", likeCount: 1, isHide: true),
-            MyPageDetailDataModel(userImage: "icColorTag", userName: "WE SOPT", comment: "기대가 됩니다 !", time: "2020. 8. 22. 19:05", likeCount: 1, isHide: true)
+            MyPageDetailDataModel(userImage: "icColorTag",
+                                  userName: "채채",
+                                  comment: "디자인 잘 하고 싶다 ❤❤✌",
+                                  time: "2020. 8. 26. 19:05",
+                                  likeCount: 1,
+                                  isOpen: false,
+                                  reply: [ReplyDataModel(userImage: "icColorTag", userName: "종화아", comment: "감사합니다 ~ 😘",
+                                                         time: "2020. 8. 24. 21:06",
+                                                         likeCount: 1),
+                                          ReplyDataModel(userImage: "icColorTag", userName: "채채", comment: "정보 감사합니다 :)", time: "2020. 8. 24. 20:05", likeCount: 1)]),
+            MyPageDetailDataModel(userImage: "icColorTag",
+                                  userName: "솝트 디자인",
+                                  comment: "홍대입구역 한빛 대관 리더스홀\n(서대문구 연희로2길 76 한빛빌딩)\n시간 : 2시 - 5시 (3시간)",
+                                  time: "2020. 8. 24. 20:05",
+                                  likeCount: 1,
+                                  isOpen: false,
+                                  reply: [ReplyDataModel(userImage: "icColorTag", userName: "종화아", comment: "감사합니다 ~ 😘",
+                                                         time: "2020. 8. 24. 21:06",
+                                                         likeCount: 1),
+                                          ReplyDataModel(userImage: "icColorTag", userName: "채채", comment: "정보 감사합니다 :)", time: "2020. 8. 24. 20:05", likeCount: 1)]),
+            MyPageDetailDataModel(userImage: "icColorTag",
+                                  userName: "WE SOPT",
+                                  comment: "기대가 됩니다 !",
+                                  time: "2020. 8. 22. 19:05",
+                                  likeCount: 1,
+                                  isOpen: false,
+                                  reply: [ReplyDataModel(userImage: "icColorTag", userName: "종화아", comment: "감사합니다 ~ 😘",
+                                                         time: "2020. 8. 24. 21:06",
+                                                         likeCount: 1),
+                                          ReplyDataModel(userImage: "icColorTag", userName: "채채", comment: "정보 감사합니다 :)", time: "2020. 8. 24. 20:05", likeCount: 1)])
         ])
     }
 }
@@ -169,13 +197,14 @@ extension MyPageDetailVC {
 
 extension MyPageDetailVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0:
-            return tableView.rowHeight
-        case 1:
-            return 43
-        default:
-            return 0
+        return tableView.rowHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 0 {
+            commentList[indexPath.section].isOpen = !commentList[indexPath.section].isOpen
+            myTableView.reloadSections([indexPath.section], with: .fade)
         }
     }
 }
@@ -184,31 +213,32 @@ extension MyPageDetailVC: UITableViewDelegate {
 
 extension MyPageDetailVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return commentList.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return commentList.count
-        case 1:
+        if commentList[section].isOpen == true {
+            return commentList[section].reply.count + 1
+        } else {
             return 1
-        default:
-            return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageDetailTVC.identifier) as? MyPageDetailTVC else { return UITableViewCell() }
-            cell.initCell(userImage: commentList[indexPath.row].userImage, userName: commentList[indexPath.row].userName, comment: commentList[indexPath.row].comment, time: commentList[indexPath.row].time, likeCount: commentList[indexPath.row].likeCount, isHide: commentList[indexPath.row].isHide)
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageDetailTVC", for: indexPath)
+                    as? MyPageDetailTVC else { return UITableViewCell() }
+            let data = commentList[indexPath.section]
+            cell.initCell(userImage: data.userImage, userName: data.userName, comment: data.comment, time: data.time, likeCount: data.likeCount)
+            cell.emptyView.isHidden = true
             return cell
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: LastCommentTVC.identifier) as? LastCommentTVC else { return UITableViewCell() }
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageDetailTVC", for: indexPath)
+                    as? MyPageDetailTVC else { return UITableViewCell() }
+            let data = commentList[indexPath.section].reply[indexPath.row - 1]
+            cell.initCell(userImage: data.userImage, userName: data.userName, comment: data.comment, time: data.time, likeCount: data.likeCount)
+            cell.emptyView.isHidden = false
             return cell
-        default:
-            return UITableViewCell()
         }
     }
 }

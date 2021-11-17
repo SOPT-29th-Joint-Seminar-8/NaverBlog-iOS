@@ -12,6 +12,8 @@ class MyPageDetailTVC: UITableViewCell {
     
     // MARK: - UI
     
+    @IBOutlet weak var emptyView: UIView!
+    
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
@@ -20,10 +22,6 @@ class MyPageDetailTVC: UITableViewCell {
     
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
-    
-    // MARK: - Properties
-    
-    private var commentIsHide = true
     
     // MARK: - Life Cycle
     
@@ -38,7 +36,7 @@ class MyPageDetailTVC: UITableViewCell {
 }
 
 extension MyPageDetailTVC {
-    func initCell(userImage: String, userName: String, comment: String, time: String, likeCount: Int, isHide: Bool) {
+    func initCell(userImage: String, userName: String, comment: String, time: String, likeCount: Int) {
         userImageView.image = UIImage(named: userImage)
         userNameLabel.text = userName
         
@@ -51,7 +49,5 @@ extension MyPageDetailTVC {
         timeLabel.text = time
         
         likeCountLabel.text = "\(likeCount)"
-        
-        commentIsHide = isHide
     }
 }
