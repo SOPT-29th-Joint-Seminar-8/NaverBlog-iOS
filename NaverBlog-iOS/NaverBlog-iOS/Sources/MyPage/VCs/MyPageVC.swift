@@ -22,6 +22,7 @@ class MyPageVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        NotificationCenter.default.post(name: NSNotification.Name("ShowWritTab"), object: nil)
         self.navigationController?.navigationBar.isHidden = true
     }
     

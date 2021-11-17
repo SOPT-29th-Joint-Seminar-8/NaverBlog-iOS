@@ -56,6 +56,7 @@ class MyPageDetailVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        NotificationCenter.default.post(name: NSNotification.Name("HiddenWriteTab"), object: nil)
         setNavigationBar()
     }
     
