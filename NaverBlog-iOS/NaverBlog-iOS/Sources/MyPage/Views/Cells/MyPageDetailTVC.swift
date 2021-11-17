@@ -14,6 +14,8 @@ class MyPageDetailTVC: UITableViewCell {
     
     @IBOutlet weak var emptyView: UIView!
     
+    @IBOutlet weak var emptyViewWidth: NSLayoutConstraint!
+    
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
@@ -23,16 +25,42 @@ class MyPageDetailTVC: UITableViewCell {
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     
+    // MARK: - Properties
+    
+    var isFilled = false
+    var likeCount = Int()
+    
     // MARK: - Life Cycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        setAddTargetAction()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
+}
+
+extension MyPageDetailTVC {
+    func setAddTargetAction() {
+        likeButton.addTarget(self, action: #selector(touchUpHeartButton), for: .touchUpInside)
+    }
+    
+    @objc
+    private func touchUpHeartButton() {
+        if isFilled {
+            likeButton.setImage(UIImage(named: "icSmallheartDefault"), for: .normal)
+            likeCount -= 1
+        } else {
+            likeButton.setImage(UIImage(named: "icSmallheartSelected"), for: .normal)
+            likeCount += 1
+        }
+        likeCountLabel.text = "\(likeCount)"
+        isFilled.toggle()
+    }
 }
 
 extension MyPageDetailTVC {
@@ -48,6 +76,7 @@ extension MyPageDetailTVC {
         
         timeLabel.text = time
         
+        self.likeCount = likeCount
         likeCountLabel.text = "\(likeCount)"
     }
 }

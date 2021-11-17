@@ -33,6 +33,8 @@ class MyPageTVC: UITableViewCell {
     // MARK: - Properties
     
     var delegate: MyPageCellDelegate?
+    var isFilled = false
+    var likeCount = Int()
     
     // MARK: - Life Cycle
     
@@ -41,23 +43,42 @@ class MyPageTVC: UITableViewCell {
         
         addTapGesture()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
 }
- 
+
 extension MyPageTVC {
     func addTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpCommentImageView(_:)))
-        commentImageView.addGestureRecognizer(tapGesture)
+        let commentTapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpCommentImageView(_:)))
+        commentImageView.addGestureRecognizer(commentTapGesture)
         commentImageView.isUserInteractionEnabled = true
+        
+        let heartTapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpHeartButton(_:)))
+        likeImageView.addGestureRecognizer(heartTapGesture)
+        likeImageView.isUserInteractionEnabled = true
     }
-    
+}
+
+extension MyPageTVC {
     @objc
     func touchUpCommentImageView(_ sender: UITapGestureRecognizer) {
         delegate?.pushToDetailVC()
+    }
+    
+    @objc
+    func touchUpHeartButton(_ sender: UITapGestureRecognizer) {
+        if isFilled {
+            likeImageView.image = UIImage(named: "icBigheartDefault")
+            likeCount -= 1
+        } else {
+            likeImageView.image = UIImage(named: "icBigheartSelected")
+            likeCount += 1
+        }
+        likeCountLabel.text = "\(likeCount)"
+        isFilled.toggle()
     }
 }
 
@@ -71,6 +92,7 @@ extension MyPageTVC {
         timeLabel.text = time
         
         likeCountLabel.text = "\(likeCount)"
+        self.likeCount = likeCount
         
         commentCountLabel.text = "\(commentCount)"
     }
