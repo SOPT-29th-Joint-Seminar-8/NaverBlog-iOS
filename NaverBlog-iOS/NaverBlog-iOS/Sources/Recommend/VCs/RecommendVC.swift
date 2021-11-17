@@ -18,6 +18,6 @@ class RecommendVC: UIViewController {
     
     private func setNavigationBar() {
         self.navigationController?.navigationBar.isHidden = true
-        customNavigationBar.setupLayout()
+        customNavigationBar.setup(title: "글 댓글")
     }
 }

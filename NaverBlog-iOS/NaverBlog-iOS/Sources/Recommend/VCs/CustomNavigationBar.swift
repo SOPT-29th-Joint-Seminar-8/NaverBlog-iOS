@@ -8,16 +8,6 @@
 import UIKit
 
 class CustomNavigationBar: UIView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setupLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     private let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "icBack"), for: .normal)
@@ -26,7 +16,7 @@ class CustomNavigationBar: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "글 댓글"
+        label.text = ""
         label.textColor = .black
         label.font = UIFont(name: "NanumBarunGothicBold", size: 16)
         return label
@@ -62,7 +52,7 @@ class CustomNavigationBar: UIView {
         return stackView
     }()
     
-    func setupLayout() {
+    private func setLayout() {
         [barStackView, seperatorView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
@@ -76,5 +66,10 @@ class CustomNavigationBar: UIView {
             seperatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             seperatorView.heightAnchor.constraint(equalToConstant: 1)
         ])
+    }
+    
+    func setup(title: String) {
+        setLayout()
+        titleLabel.text = title
     }
 }
