@@ -84,6 +84,16 @@ extension MyPageVC: UITableViewDataSource {
         }
         cell.initCell(image: myPageList[indexPath.row].image, title: myPageList[indexPath.row].title, content: myPageList[indexPath.row].content, time: myPageList[indexPath.row].time, likeCount: myPageList[indexPath.row].likeCount, commentCount: myPageList[indexPath.row].commentCount)
         cell.selectionStyle = .none
+        cell.delegate = self
         return cell
+    }
+}
+
+// MARK: - Cell Delegate
+
+extension MyPageVC: MyPageCellDelegate {
+    func pushToDetailVC() {
+        let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPageDetail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPageDetail)
+        self.navigationController?.pushViewController(dvc, animated: true)
     }
 }
