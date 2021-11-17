@@ -30,6 +30,14 @@ class MyPageDetailVC: UIViewController {
         return effectView
     }()
     
+    private lazy var postButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("", for: .normal)
+        button.setImage(UIImage(named: "btnRegister"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     private lazy var upButton: UIButton = {
         let button = UIButton()
         button.setTitle("", for: .normal)
@@ -66,6 +74,7 @@ extension MyPageDetailVC {
         view.addSubview(upButton)
         
         backgroundView.contentView.addSubview(textField)
+        backgroundView.contentView.addSubview(postButton)
         
         textField.delegate = self
         
@@ -75,34 +84,49 @@ extension MyPageDetailVC {
         ])
         
         NSLayoutConstraint.activate([
-            textField.leadingAnchor.constraint(equalTo: backgroundView.contentView.leadingAnchor, constant: 8),
-            textField.trailingAnchor.constraint(equalTo: backgroundView.contentView.trailingAnchor, constant: -8),
-            textField.topAnchor.constraint(equalTo: backgroundView.contentView.topAnchor, constant: 8),
-            textField.bottomAnchor.constraint(equalTo: backgroundView.contentView.bottomAnchor, constant: -8),
+            textField.leadingAnchor.constraint(equalTo: backgroundView.contentView.leadingAnchor, constant: 0),
+            textField.topAnchor.constraint(equalTo: backgroundView.contentView.topAnchor, constant: 0),
+            textField.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: 0),
+            textField.widthAnchor.constraint(equalToConstant: 301)
         ])
         
         NSLayoutConstraint.activate([
-            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
-            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            postButton.leadingAnchor.constraint(equalTo: textField.trailingAnchor, constant: 0),
+            postButton.trailingAnchor.constraint(equalTo: backgroundView.contentView.trailingAnchor, constant: 0),
+            postButton.topAnchor.constraint(equalTo: backgroundView.contentView.topAnchor, constant: 0),
+            postButton.bottomAnchor.constraint(equalTo: backgroundView.contentView.bottomAnchor, constant: 0),
+        ])
+        
+        NSLayoutConstraint.activate([
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
         ])
         
         NSLayoutConstraint.activate([
             view.keyboardLayoutGuide.topAnchor.constraint(
                 equalTo: backgroundView.bottomAnchor,
-                constant: 8
+                constant: 0
             )
         ])
     }
     
     private func setToolBar() {
-        let toolbar = UIToolbar()
+        let toolbar = UIToolbar(frame:CGRect(x:0, y:0, width: view.frame.width, height: 44))
         toolbar.sizeToFit()
-                
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(done))
-                
-        toolbar.setItems([doneButton], animated: false)
-                
-        //toolbar를 넣고싶은 textField 및 textView 필자의 경우 recommendDataTextView
+        toolbar.tintColor = .gray
+        
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+        
+        let userImageButton = UIBarButtonItem(image: UIImage(named: "icColorTag"), style: .plain, target: nil, action: #selector(done))
+        let emojiButton = UIBarButtonItem(image: UIImage(named: "icEmoticon"), style: .plain, target: nil, action: #selector(done))
+        let cameraButton = UIBarButtonItem(image: UIImage(named: "icCamera"), style: .plain, target: nil, action: #selector(done))
+        let tagButton = UIBarButtonItem(image: UIImage(named: "icTag"), style: .plain, target: nil, action: #selector(done))
+        let lockButton = UIBarButtonItem(image: UIImage(named: "icLock"), style: .plain, target: nil, action: #selector(done))
+        
+        let fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        fixedSpace.width = 20.0
+        
+        toolbar.setItems([fixedSpace, userImageButton, fixedSpace, emojiButton, fixedSpace, cameraButton, fixedSpace, tagButton, fixedSpace, lockButton], animated: false)
         textField.inputAccessoryView = toolbar
     }
     
