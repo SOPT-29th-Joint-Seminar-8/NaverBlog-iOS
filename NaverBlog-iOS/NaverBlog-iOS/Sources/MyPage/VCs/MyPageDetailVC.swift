@@ -128,7 +128,7 @@ extension MyPageDetailVC {
         let fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         fixedSpace.width = 20.0
         
-        toolbar.setItems([fixedSpace, userImageButton, fixedSpace, emojiButton, fixedSpace, cameraButton, tagButton, fixedSpace, lockButton], animated: false)
+        toolbar.setItems([fixedSpace, userImageButton, fixedSpace, emojiButton, fixedSpace, cameraButton, fixedSpace, tagButton, fixedSpace, lockButton], animated: false)
         textField.inputAccessoryView = toolbar
     }
     

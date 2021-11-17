@@ -57,7 +57,6 @@ extension MyPageTVC {
     
     @objc
     func touchUpCommentImageView(_ sender: UITapGestureRecognizer) {
-        print("comment image tapped")
         delegate?.pushToDetailVC()
     }
 }
