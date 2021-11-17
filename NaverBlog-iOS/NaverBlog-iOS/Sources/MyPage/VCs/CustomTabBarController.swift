@@ -78,7 +78,7 @@ extension CustomTabBarController {
     
     @objc
     private func touchUpWriteTab(sender: UIButton) {
-        selectedIndex = 2
+        
     }
 }
 
