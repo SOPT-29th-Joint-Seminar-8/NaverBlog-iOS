@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.Recommend, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Navigation)
 
         // 소연
-        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.MyPage, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.CustomTabBarController)
+        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.MyPageDetail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPageDetail)
         
         window?.makeKeyAndVisible()
     }

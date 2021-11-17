@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol MyPageCellDelegate {
+    func pushToDetailVC()
+}
+
 class MyPageTVC: UITableViewCell {
     static let identifier = "MyPageTVC"
     
@@ -25,16 +29,37 @@ class MyPageTVC: UITableViewCell {
     @IBOutlet weak var commentImageView: UIImageView!
     @IBOutlet weak var commentCountLabel: UILabel!
     
+    
+    // MARK: - Properties
+    
+    var delegate: MyPageCellDelegate?
+    
     // MARK: - Life Cycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        addTapGesture()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
+}
+ 
+extension MyPageTVC {
+    func addTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpCommentImageView(_:)))
+        commentImageView.addGestureRecognizer(tapGesture)
+        commentImageView.isUserInteractionEnabled = true
+    }
+    
+    @objc
+    func touchUpCommentImageView(_ sender: UITapGestureRecognizer) {
+        print("comment image tapped")
+        delegate?.pushToDetailVC()
+    }
 }
 
 extension MyPageTVC {

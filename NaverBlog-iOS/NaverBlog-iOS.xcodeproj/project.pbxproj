@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92115B93274368B900379324 /* MyPageDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92115B92274368B900379324 /* MyPageDetail.storyboard */; };
+		92115B95274368F200379324 /* MyPageDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115B94274368F200379324 /* MyPageDetailVC.swift */; };
 		92544637273FF70900EDBD94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92544636273FF70900EDBD94 /* AppDelegate.swift */; };
 		92544639273FF70900EDBD94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92544638273FF70900EDBD94 /* SceneDelegate.swift */; };
 		9254463B273FF70900EDBD94 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254463A273FF70900EDBD94 /* FeedVC.swift */; };
@@ -41,10 +43,19 @@
 		925446992741441C00EDBD94 /* MyPageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925446972741441C00EDBD94 /* MyPageTVC.swift */; };
 		9254469A2741441C00EDBD94 /* MyPageTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925446982741441C00EDBD94 /* MyPageTVC.xib */; };
 		925446B0274186BF00EDBD94 /* MyPageTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925446AF274186BF00EDBD94 /* MyPageTableHeaderView.xib */; };
+		9261714C27438DB000D82397 /* MyPageDetailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261714B27438DB000D82397 /* MyPageDetailDataModel.swift */; };
+		9261714F27438E3500D82397 /* MyPageDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261714D27438E3500D82397 /* MyPageDetailTVC.swift */; };
+		9261715027438E3500D82397 /* MyPageDetailTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9261714E27438E3500D82397 /* MyPageDetailTVC.xib */; };
+		926171532743986100D82397 /* LastCommentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926171512743986100D82397 /* LastCommentTVC.swift */; };
+		926171542743986100D82397 /* LastCommentTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926171522743986100D82397 /* LastCommentTVC.xib */; };
 		92B045712742352F0030B923 /* UITabBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B045702742352F0030B923 /* UITabBar+.swift */; };
+		92F57AD72744E27700951E72 /* CustomNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F57AD62744E27700951E72 /* CustomNavigationBarView.swift */; };
+		92F57AD92744E61E00951E72 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F57AD82744E61E00951E72 /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92115B92274368B900379324 /* MyPageDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPageDetail.storyboard; sourceTree = "<group>"; };
+		92115B94274368F200379324 /* MyPageDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDetailVC.swift; sourceTree = "<group>"; };
 		92544633273FF70800EDBD94 /* NaverBlog-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NaverBlog-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92544636273FF70900EDBD94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92544638273FF70900EDBD94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,7 +92,14 @@
 		925446972741441C00EDBD94 /* MyPageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTVC.swift; sourceTree = "<group>"; };
 		925446982741441C00EDBD94 /* MyPageTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageTVC.xib; sourceTree = "<group>"; };
 		925446AF274186BF00EDBD94 /* MyPageTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageTableHeaderView.xib; sourceTree = "<group>"; };
+		9261714B27438DB000D82397 /* MyPageDetailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDetailDataModel.swift; sourceTree = "<group>"; };
+		9261714D27438E3500D82397 /* MyPageDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDetailTVC.swift; sourceTree = "<group>"; };
+		9261714E27438E3500D82397 /* MyPageDetailTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageDetailTVC.xib; sourceTree = "<group>"; };
+		926171512743986100D82397 /* LastCommentTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastCommentTVC.swift; sourceTree = "<group>"; };
+		926171522743986100D82397 /* LastCommentTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastCommentTVC.xib; sourceTree = "<group>"; };
 		92B045702742352F0030B923 /* UITabBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+.swift"; sourceTree = "<group>"; };
+		92F57AD62744E27700951E72 /* CustomNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarView.swift; sourceTree = "<group>"; };
+		92F57AD82744E61E00951E72 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,8 +275,9 @@
 		9254468C2741009300EDBD94 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
-				9254465C273FF95D00EDBD94 /* MyPageVC.swift */,
 				925446892741008500EDBD94 /* CustomTabBarController.swift */,
+				9254465C273FF95D00EDBD94 /* MyPageVC.swift */,
+				92115B94274368F200379324 /* MyPageDetailVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -269,6 +288,7 @@
 				9254468E2741017200EDBD94 /* UIColor+.swift */,
 				925446902741064100EDBD94 /* CALayer+.swift */,
 				92B045702742352F0030B923 /* UITabBar+.swift */,
+				92F57AD82744E61E00951E72 /* UIViewController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -277,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				925446932741434800EDBD94 /* MyPageDataModel.swift */,
+				9261714B27438DB000D82397 /* MyPageDetailDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				9254468527400FEF00EDBD94 /* MyPage.storyboard */,
+				92115B92274368B900379324 /* MyPageDetail.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -292,8 +314,12 @@
 		92544696274143E900EDBD94 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				925446982741441C00EDBD94 /* MyPageTVC.xib */,
 				925446972741441C00EDBD94 /* MyPageTVC.swift */,
+				925446982741441C00EDBD94 /* MyPageTVC.xib */,
+				9261714D27438E3500D82397 /* MyPageDetailTVC.swift */,
+				9261714E27438E3500D82397 /* MyPageDetailTVC.xib */,
+				926171512743986100D82397 /* LastCommentTVC.swift */,
+				926171522743986100D82397 /* LastCommentTVC.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -302,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				925446AF274186BF00EDBD94 /* MyPageTableHeaderView.xib */,
+				92F57AD62744E27700951E72 /* CustomNavigationBarView.swift */,
 			);
 			path = HeaderViews;
 			sourceTree = "<group>";
@@ -366,12 +393,15 @@
 			files = (
 				925446752740017D00EDBD94 /* NanumBarunGothicBold.otf in Resources */,
 				925446762740017D00EDBD94 /* NanumBarunGothicLight.otf in Resources */,
+				9261715027438E3500D82397 /* MyPageDetailTVC.xib in Resources */,
 				9254468427400E6100EDBD94 /* Recommend.storyboard in Resources */,
 				925446772740017D00EDBD94 /* NanumBarunGothicUltraLight.otf in Resources */,
 				925446802740091000EDBD94 /* Navigation.xcassets in Resources */,
 				925446742740017D00EDBD94 /* NanumBarunGothic.otf in Resources */,
+				926171542743986100D82397 /* LastCommentTVC.xib in Resources */,
 				925446882740FBAE00EDBD94 /* Images.xcassets in Resources */,
 				925446822740095400EDBD94 /* Feed.xcassets in Resources */,
+				92115B93274368B900379324 /* MyPageDetail.storyboard in Resources */,
 				92544643273FF70A00EDBD94 /* LaunchScreen.storyboard in Resources */,
 				9254467C2740069E00EDBD94 /* TabBar.xcassets in Resources */,
 				925446B0274186BF00EDBD94 /* MyPageTableHeaderView.xib in Resources */,
@@ -394,21 +424,27 @@
 				9254466D273FFAE500EDBD94 /* NavigationController.swift in Sources */,
 				92544652273FF7D400EDBD94 /* Storyboard.swift in Sources */,
 				92544663273FF99900EDBD94 /* RecommendVC.swift in Sources */,
+				92115B95274368F200379324 /* MyPageDetailVC.swift in Sources */,
 				92544650273FF7C500EDBD94 /* ViewController.swift in Sources */,
 				92544661273FF98C00EDBD94 /* WriteVC.swift in Sources */,
 				9254463B273FF70900EDBD94 /* FeedVC.swift in Sources */,
 				9254464E273FF78600EDBD94 /* Const.swift in Sources */,
 				9254465D273FF95D00EDBD94 /* MyPageVC.swift in Sources */,
 				925446942741434800EDBD94 /* MyPageDataModel.swift in Sources */,
+				92F57AD72744E27700951E72 /* CustomNavigationBarView.swift in Sources */,
 				92544637273FF70900EDBD94 /* AppDelegate.swift in Sources */,
 				9254466F273FFAFB00EDBD94 /* TabBarController.swift in Sources */,
 				9254468A2741008500EDBD94 /* CustomTabBarController.swift in Sources */,
+				92F57AD92744E61E00951E72 /* UIViewController+.swift in Sources */,
 				92544639273FF70900EDBD94 /* SceneDelegate.swift in Sources */,
 				92B045712742352F0030B923 /* UITabBar+.swift in Sources */,
+				9261714F27438E3500D82397 /* MyPageDetailTVC.swift in Sources */,
 				9254465F273FF98000EDBD94 /* NotificationVC.swift in Sources */,
+				926171532743986100D82397 /* LastCommentTVC.swift in Sources */,
 				925446912741064100EDBD94 /* CALayer+.swift in Sources */,
 				925446992741441C00EDBD94 /* MyPageTVC.swift in Sources */,
 				9254468F2741017200EDBD94 /* UIColor+.swift in Sources */,
+				9261714C27438DB000D82397 /* MyPageDetailDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
