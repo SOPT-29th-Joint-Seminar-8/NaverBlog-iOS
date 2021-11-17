@@ -68,6 +68,11 @@ class MyPageDetailVC: UIViewController {
         setData()
         setTableView()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 extension MyPageDetailVC {
@@ -155,7 +160,7 @@ extension MyPageDetailVC {
                                   userName: "채채",
                                   comment: "디자인 잘 하고 싶다 ❤❤✌",
                                   time: "2020. 8. 26. 19:05",
-                                  likeCount: 1,
+                                  likeCount: 2,
                                   isOpen: false,
                                   reply: [ReplyDataModel(userImage: "icColorTag", userName: "종화아", comment: "감사합니다 ~ 😘",
                                                          time: "2020. 8. 24. 21:06",
@@ -165,7 +170,7 @@ extension MyPageDetailVC {
                                   userName: "솝트 디자인",
                                   comment: "홍대입구역 한빛 대관 리더스홀\n(서대문구 연희로2길 76 한빛빌딩)\n시간 : 2시 - 5시 (3시간)",
                                   time: "2020. 8. 24. 20:05",
-                                  likeCount: 1,
+                                  likeCount: 4,
                                   isOpen: false,
                                   reply: [ReplyDataModel(userImage: "icColorTag", userName: "종화아", comment: "감사합니다 ~ 😘",
                                                          time: "2020. 8. 24. 21:06",
@@ -175,7 +180,7 @@ extension MyPageDetailVC {
                                   userName: "WE SOPT",
                                   comment: "기대가 됩니다 !",
                                   time: "2020. 8. 22. 19:05",
-                                  likeCount: 1,
+                                  likeCount: 3,
                                   isOpen: false,
                                   reply: [ReplyDataModel(userImage: "icColorTag", userName: "종화아", comment: "감사합니다 ~ 😘",
                                                          time: "2020. 8. 24. 21:06",
@@ -205,7 +210,7 @@ extension MyPageDetailVC: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row == 0 {
             commentList[indexPath.section].isOpen = !commentList[indexPath.section].isOpen
-            myTableView.reloadSections([indexPath.section], with: .fade)
+            myTableView.reloadSections([indexPath.section], with: .none)
         }
     }
 }
@@ -231,14 +236,16 @@ extension MyPageDetailVC: UITableViewDataSource {
                     as? MyPageDetailTVC else { return UITableViewCell() }
             let data = commentList[indexPath.section]
             cell.initCell(userImage: data.userImage, userName: data.userName, comment: data.comment, time: data.time, likeCount: data.likeCount)
-            cell.emptyView.isHidden = true
+            cell.emptyViewWidth.constant = 20
+            cell.selectionStyle = .none
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageDetailTVC", for: indexPath)
                     as? MyPageDetailTVC else { return UITableViewCell() }
             let data = commentList[indexPath.section].reply[indexPath.row - 1]
             cell.initCell(userImage: data.userImage, userName: data.userName, comment: data.comment, time: data.time, likeCount: data.likeCount)
-            cell.emptyView.isHidden = false
+            cell.emptyViewWidth.constant = 54
+            cell.selectionStyle = .none
             return cell
         }
     }

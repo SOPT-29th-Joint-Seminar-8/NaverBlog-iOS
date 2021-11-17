@@ -32,6 +32,11 @@ class MyPageVC: UIViewController {
         setTableView()
         setData()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 // MARK: - Cutom Methods
@@ -48,9 +53,9 @@ extension MyPageVC {
     
     private func setData() {
         myPageList.append(contentsOf: [
-            MyPageDataModel.init(image: "imgPost1", title: "1월도 안녕", content: "[1월 1일] 평소랑 다를 거 없는 아침인데 새해 첫날이니까 괜히 의미 부여하기 빛도...", time: "2021.2.2", likeCount: 6, commentCount: 8),
-            MyPageDataModel.init(image: "imgPost2", title: "막학기 대학생 일상", content: "2020의 끝 ! 가장 신났어야 할 12월이 소소하게 지나갔다. 1. 미술사 종강 패키...", time: "2021.2.6", likeCount: 6, commentCount: 8),
-            MyPageDataModel.init(image: "imgPost3", title: "우리만의", content: "11.03 오전 수업에는 아아 토끼 같은 고냥이 패키지 디쟌 컨펌받고 술 먹으러 갔다...", time: "2021.2.10", likeCount: 6, commentCount: 8)
+            MyPageDataModel.init(image: "imgPost1", title: "1월도 안녕", content: "[1월 1일] 평소랑 다를 거 없는 아침인데 새해 첫날이니까 괜히 의미 부여하기 빛도...", time: "2021.2.2", likeCount: 3, commentCount: 8),
+            MyPageDataModel.init(image: "imgPost2", title: "막학기 대학생 일상", content: "2020의 끝 ! 가장 신났어야 할 12월이 소소하게 지나갔다. 1. 미술사 종강 패키...", time: "2021.2.6", likeCount: 7, commentCount: 8),
+            MyPageDataModel.init(image: "imgPost3", title: "우리만의", content: "11.03 오전 수업에는 아아 토끼 같은 고냥이 패키지 디쟌 컨펌받고 술 먹으러 갔다...", time: "2021.2.10", likeCount: 4, commentCount: 8)
         ])
     }
 }
