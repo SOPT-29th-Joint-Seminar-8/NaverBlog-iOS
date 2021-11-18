@@ -23,17 +23,26 @@
                                     <constraint firstAttribute="height" constant="57" id="Ggt-gw-EM7"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d3h-nN-1NS">
+                                <rect key="frame" x="0.0" y="145" width="414" height="717"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="d3h-nN-1NS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2jv-yh-ONd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="d3h-nN-1NS" secondAttribute="trailing" id="6DW-xT-Ehf"/>
                             <constraint firstItem="4bq-ro-saH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Jxm-Pn-voM"/>
                             <constraint firstItem="4bq-ro-saH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Uua-dg-J3b"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="d3h-nN-1NS" secondAttribute="bottom" id="lh2-sk-10H"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4bq-ro-saH" secondAttribute="trailing" id="qbu-48-rdc"/>
+                            <constraint firstItem="d3h-nN-1NS" firstAttribute="top" secondItem="4bq-ro-saH" secondAttribute="bottom" id="sjp-Cy-Uwr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ob1-Zn-YQk"/>
                     <connections>
+                        <outlet property="commentTableView" destination="d3h-nN-1NS" id="Aoi-3j-amM"/>
                         <outlet property="customNavigationBar" destination="4bq-ro-saH" id="YAr-mY-Kgj"/>
                     </connections>
                 </viewController>

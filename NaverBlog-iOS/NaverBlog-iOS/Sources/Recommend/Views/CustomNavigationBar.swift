@@ -68,8 +68,9 @@ class CustomNavigationBar: UIView {
         ])
     }
     
-    func setup(title: String) {
+    func setup(title: String, commentCount: Int) {
         setLayout()
         titleLabel.text = title
+        countLabel.text = "\(commentCount)"
     }
 }
