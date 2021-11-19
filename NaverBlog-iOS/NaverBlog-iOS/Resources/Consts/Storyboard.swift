@@ -15,6 +15,7 @@ extension Const {
             static let Write = "Write"
             static let Notification = "Notification"
             static let MyPage = "MyPage"
+            static let MyPageDetail = "MyPageDetail"
         }
     }
 }

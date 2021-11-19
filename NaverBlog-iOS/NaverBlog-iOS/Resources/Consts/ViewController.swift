@@ -19,6 +19,7 @@ extension Const {
                 static let Write = "WriteVC"
                 static let Notification = "NotificationVC"
                 static let MyPage = "MyPageVC"
+                static let MyPageDetail = "MyPageDetailVC"
             }
     }
 }

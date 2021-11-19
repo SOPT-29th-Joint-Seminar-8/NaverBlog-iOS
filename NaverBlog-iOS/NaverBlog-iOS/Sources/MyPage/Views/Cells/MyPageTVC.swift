@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol MyPageCellDelegate {
+    func pushToDetailVC()
+}
+
 class MyPageTVC: UITableViewCell {
     static let identifier = "MyPageTVC"
     
@@ -25,16 +29,57 @@ class MyPageTVC: UITableViewCell {
     @IBOutlet weak var commentImageView: UIImageView!
     @IBOutlet weak var commentCountLabel: UILabel!
     
+    
+    // MARK: - Properties
+    
+    var delegate: MyPageCellDelegate?
+    var isFilled = false
+    var likeCount = Int()
+    
     // MARK: - Life Cycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        addTapGesture()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
+}
+
+extension MyPageTVC {
+    func addTapGesture() {
+        let commentTapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpCommentImageView(_:)))
+        commentImageView.addGestureRecognizer(commentTapGesture)
+        commentImageView.isUserInteractionEnabled = true
+        
+        let heartTapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpHeartButton(_:)))
+        likeImageView.addGestureRecognizer(heartTapGesture)
+        likeImageView.isUserInteractionEnabled = true
+    }
+}
+
+extension MyPageTVC {
+    @objc
+    func touchUpCommentImageView(_ sender: UITapGestureRecognizer) {
+        delegate?.pushToDetailVC()
+    }
+    
+    @objc
+    func touchUpHeartButton(_ sender: UITapGestureRecognizer) {
+        if isFilled {
+            likeImageView.image = UIImage(named: "icBigheartDefault")
+            likeCount -= 1
+        } else {
+            likeImageView.image = UIImage(named: "icBigheartSelected")
+            likeCount += 1
+        }
+        likeCountLabel.text = "\(likeCount)"
+        isFilled.toggle()
+    }
 }
 
 extension MyPageTVC {
@@ -47,6 +92,7 @@ extension MyPageTVC {
         timeLabel.text = time
         
         likeCountLabel.text = "\(likeCount)"
+        self.likeCount = likeCount
         
         commentCountLabel.text = "\(commentCount)"
     }
