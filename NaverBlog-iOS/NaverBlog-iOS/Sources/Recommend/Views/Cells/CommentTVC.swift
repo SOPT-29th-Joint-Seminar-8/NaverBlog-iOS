@@ -25,6 +25,10 @@ class CommentTVC: UITableViewCell {
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     
+    var isOpen: Bool = false
+    var replyCommentCount: Int = 0
+    var likeCount: Int = 0
+    
     private var commentStackViewConstraint: NSLayoutConstraint?
     
     private let dateFormatter: DateFormatter = {
@@ -63,15 +67,40 @@ class CommentTVC: UITableViewCell {
             commentMoreStackView.isHidden = true
         }
         likeCountLabel.text = "\(likeCount)"
+        self.replyCommentCount = replyCommentCount ?? 0
+        self.likeCount = likeCount
     }
     
-    func setReplyCommentLayout() {
-        commentStackViewConstraint = commentStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 54)
+    private func set(isOpen: Bool, replyCommentCount: Int) {
+        if isOpen {
+            commentMoreLabel.text = "답글 숨기기"
+        } else {
+            commentMoreLabel.text = "답글 \(replyCommentCount)개 보기"
+        }
+    }
+    
+    func setCommentLeadingLayout(constant: CGFloat) {
+        commentStackViewConstraint = commentStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: constant)
         commentStackViewConstraint?.isActive = true
     }
     
-    func setCommentLayout() {
-        commentStackViewConstraint = commentStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
-        commentStackViewConstraint?.isActive = true
+    func setCommentMoreLabel(isOpen: Bool) {
+        if isOpen {
+            commentMoreLabel.text = "답글 숨기기"
+        } else {
+            commentMoreLabel.text = "답글 \(replyCommentCount)개 보기"
+        }
+    }
+    
+    @IBAction func touchUpLikeButton(_ sender: Any) {
+        if likeButton.isSelected {
+            likeButton.isSelected.toggle()
+            likeCount -= 1
+            likeCountLabel.text = "\(likeCount)"
+        } else {
+            likeButton.isSelected.toggle()
+            likeCount += 1
+            likeCountLabel.text = "\(likeCount)"
+        }
     }
 }

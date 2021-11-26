@@ -63,6 +63,8 @@ extension RecommendVC: UITableViewDelegate {
         if indexPath.row == 0 {
             comment[indexPath.section].isOpen.toggle()
             tableView.reloadSections([indexPath.section], with: .none)
+            guard let currentCell = tableView.cellForRow(at: indexPath) as? CommentTVC else { return }
+            currentCell.setCommentMoreLabel(isOpen: comment[indexPath.section].isOpen)
         }
     }
 }
@@ -89,7 +91,7 @@ extension RecommendVC: UITableViewDataSource {
                        date: currentComment.date,
                        likeCount: currentComment.likeCount,
                        replyCommentCount: currentComment.replyCommentData.count)
-            cell.setCommentLayout()
+            cell.setCommentLeadingLayout(constant: 20)
             
             return cell
         } else {
@@ -100,7 +102,7 @@ extension RecommendVC: UITableViewDataSource {
                        date: currentReplyComment.date,
                        likeCount: currentReplyComment.likeCount,
                        replyCommentCount: nil)
-            cell.setReplyCommentLayout()
+            cell.setCommentLeadingLayout(constant: 54)
             
             return cell
         }
