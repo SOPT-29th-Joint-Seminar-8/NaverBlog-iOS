@@ -21,7 +21,6 @@ class FeedVC: UIViewController {
 		}
 	}
 	
-	
 	// MARK: - Life Cycle
 	
 	override func viewWillAppear(_ animated: Bool) {

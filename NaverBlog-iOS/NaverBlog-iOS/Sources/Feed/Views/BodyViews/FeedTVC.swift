@@ -73,5 +73,3 @@ extension FeedTVC {
 		commentCountLabel?.text = manager.getCommentCount(index)
 	}
 }
-
-

@@ -48,7 +48,6 @@ extension CustomTBC {
 			Const.Image.icAlarm,
 			Const.Image.icProfile
 		]
-		
 	
 		/// ViewController Identifier
 		
@@ -91,12 +90,7 @@ extension CustomTBC {
 // MARK: - Config Tab Bar
 
 extension CustomTBC {
-	private func createTab<T: UIViewController>(vcType: T.Type,
-												viewControllerIdentifier: String,
-												storyboardIdentifier: String,
-												defaultImage: UIImage?,
-												selectedImage: UIImage?) -> T? {
-
+	private func createTab<T: UIViewController>(vcType: T.Type, viewControllerIdentifier: String, storyboardIdentifier: String, defaultImage: UIImage?, selectedImage: UIImage?) -> T? {
 		let storyboard = UIStoryboard.init(name: storyboardIdentifier, bundle: nil)
 		guard var tab = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as? T else { return nil }
 		setTabBarItem(tab: &tab, defaultImage: defaultImage, selectedImage: selectedImage)
