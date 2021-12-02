@@ -10,7 +10,6 @@
 		188E63C4A32A90F8043CC10D /* Pods_NaverBlog_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472BFDCF3DE63DA9A2B52924 /* Pods_NaverBlog_iOS.framework */; };
 		4F11B7CF2747A96300F2EC0D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F11B7CE2747A96300F2EC0D /* Image.swift */; };
 		4F2AE0352743AFC1006785E4 /* CustomTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2AE0342743AFC1006785E4 /* CustomTBC.swift */; };
-		4F2AE0372743E6D9006785E4 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F2AE0362743E6D9006785E4 /* Notification.storyboard */; };
 		4F7DBEAE2758BA4200E514BC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7DBEAD2758BA4200E514BC /* API.swift */; };
 		4F7DBEB12758BCF000E514BC /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7DBEB02758BCF000E514BC /* NetworkResult.swift */; };
 		4FF6CD71274F93950062A5CB /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6CD70274F93950062A5CB /* FeedManager.swift */; };
@@ -66,6 +65,7 @@
 		92B045712742352F0030B923 /* UITabBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B045702742352F0030B923 /* UITabBar+.swift */; };
 		92F57AD72744E27700951E72 /* CustomNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F57AD62744E27700951E72 /* CustomNavigationBarView.swift */; };
 		92F57AD92744E61E00951E72 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F57AD82744E61E00951E72 /* UIViewController+.swift */; };
+		E2544C9A27593186003390CE /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2544C9927593186003390CE /* Notification.storyboard */; };
 		E2B3E2652742E23E0087A6AC /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E2642742E23E0087A6AC /* CustomNavigationBar.swift */; };
 		E2FC75B027456B4100D00188 /* CommentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC75AE27456B4100D00188 /* CommentTVC.swift */; };
 		E2FC75B127456B4100D00188 /* CommentTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FC75AF27456B4100D00188 /* CommentTVC.xib */; };
@@ -77,7 +77,6 @@
 		472BFDCF3DE63DA9A2B52924 /* Pods_NaverBlog_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaverBlog_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F11B7CE2747A96300F2EC0D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		4F2AE0342743AFC1006785E4 /* CustomTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTBC.swift; sourceTree = "<group>"; };
-		4F2AE0362743E6D9006785E4 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		4F7DBEAD2758BA4200E514BC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		4F7DBEB02758BCF000E514BC /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		4FF6CD70274F93950062A5CB /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
@@ -136,6 +135,7 @@
 		92B045702742352F0030B923 /* UITabBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+.swift"; sourceTree = "<group>"; };
 		92F57AD62744E27700951E72 /* CustomNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarView.swift; sourceTree = "<group>"; };
 		92F57AD82744E61E00951E72 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		E2544C9927593186003390CE /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		E2B3E2642742E23E0087A6AC /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		E2FC75AE27456B4100D00188 /* CommentTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTVC.swift; sourceTree = "<group>"; };
 		E2FC75AF27456B4100D00188 /* CommentTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTVC.xib; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				9254465E273FF98000EDBD94 /* NotificationVC.swift */,
-				4F2AE0362743E6D9006785E4 /* Notification.storyboard */,
+				E2544C9927593186003390CE /* Notification.storyboard */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -567,6 +567,7 @@
 				925446762740017D00EDBD94 /* NanumBarunGothicLight.otf in Resources */,
 				9261715027438E3500D82397 /* MyPageDetailTVC.xib in Resources */,
 				9254468427400E6100EDBD94 /* Recommend.storyboard in Resources */,
+				E2544C9A27593186003390CE /* Notification.storyboard in Resources */,
 				925446772740017D00EDBD94 /* NanumBarunGothicUltraLight.otf in Resources */,
 				925446802740091000EDBD94 /* Navigation.xcassets in Resources */,
 				925446742740017D00EDBD94 /* NanumBarunGothic.otf in Resources */,
@@ -577,7 +578,6 @@
 				92544643273FF70A00EDBD94 /* LaunchScreen.storyboard in Resources */,
 				9254467C2740069E00EDBD94 /* TabBar.xcassets in Resources */,
 				925446B0274186BF00EDBD94 /* MyPageTableHeaderView.xib in Resources */,
-				4F2AE0372743E6D9006785E4 /* Notification.storyboard in Resources */,
 				9254467E274006D200EDBD94 /* Keyboard.xcassets in Resources */,
 				9254467A2740044700EDBD94 /* Colors.xcassets in Resources */,
 				9254468627400FEF00EDBD94 /* MyPage.storyboard in Resources */,
