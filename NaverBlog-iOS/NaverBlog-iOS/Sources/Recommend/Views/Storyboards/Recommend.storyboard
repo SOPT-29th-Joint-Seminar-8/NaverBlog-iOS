@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AUG-0s-pSG">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumBarunGothic.otf">
+            <string>NanumBarunGothicOTF</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--RecommendVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="RecommendVC" id="Y6W-OH-hqX" customClass="RecommendVC" customModule="NaverBlog_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bq-ro-saH" customClass="CustomNavigationBar" customModule="NaverBlog_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="57"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="Ggt-gw-EM7"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d3h-nN-1NS">
+                                <rect key="frame" x="0.0" y="145" width="414" height="717"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="R8A-zu-VVi">
+                                    <rect key="frame" x="0.0" y="110.5" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="w3r-TL-mDU">
+                                            <rect key="frame" x="160.5" y="14" width="93" height="16"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="k54-Lm-vfy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="67" height="16"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀 댓글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8z3-3e-rc9">
+                                                            <rect key="frame" x="0.0" y="0.0" width="53.5" height="16"/>
+                                                            <fontDescription key="fontDescription" name="NanumBarunGothicOTF" family="NanumBarunGothicOTF" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byu-pA-STR">
+                                                            <rect key="frame" x="58.5" y="0.0" width="8.5" height="16"/>
+                                                            <fontDescription key="fontDescription" name="NanumBarunGothicOTF" family="NanumBarunGothicOTF" pointSize="14"/>
+                                                            <color key="textColor" name="blogGray002"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnc-xj-nya">
+                                                    <rect key="frame" x="77" y="0.0" width="16" height="16"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal">
+                                                        <imageReference key="image" image="chevron.down" catalog="system" symbolScale="small"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsU-Xm-5Zx">
+                                            <rect key="frame" x="20" y="43.5" width="374" height="0.5"/>
+                                            <color key="backgroundColor" name="blogGray002"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="0.5" id="dyu-oJ-NXq"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="xsU-Xm-5Zx" secondAttribute="bottom" id="JmU-zg-N59"/>
+                                        <constraint firstAttribute="bottom" secondItem="w3r-TL-mDU" secondAttribute="bottom" constant="14" id="MdG-A0-3pe"/>
+                                        <constraint firstItem="xsU-Xm-5Zx" firstAttribute="leading" secondItem="R8A-zu-VVi" secondAttribute="leading" constant="20" id="P9c-cC-ufa"/>
+                                        <constraint firstItem="w3r-TL-mDU" firstAttribute="top" secondItem="R8A-zu-VVi" secondAttribute="top" constant="14" id="aJx-nW-7Et"/>
+                                        <constraint firstAttribute="trailing" secondItem="xsU-Xm-5Zx" secondAttribute="trailing" constant="20" id="as3-O8-Hvb"/>
+                                        <constraint firstItem="w3r-TL-mDU" firstAttribute="centerX" secondItem="R8A-zu-VVi" secondAttribute="centerX" id="lkL-8p-d6T"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fNI-bO-Wlu">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fNI-bO-Wlu" id="Z4D-Pl-7f8">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="d3h-nN-1NS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2jv-yh-ONd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="d3h-nN-1NS" secondAttribute="trailing" id="6DW-xT-Ehf"/>
+                            <constraint firstItem="4bq-ro-saH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Jxm-Pn-voM"/>
+                            <constraint firstItem="4bq-ro-saH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Uua-dg-J3b"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="d3h-nN-1NS" secondAttribute="bottom" id="lh2-sk-10H"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4bq-ro-saH" secondAttribute="trailing" id="qbu-48-rdc"/>
+                            <constraint firstItem="d3h-nN-1NS" firstAttribute="top" secondItem="4bq-ro-saH" secondAttribute="bottom" id="sjp-Cy-Uwr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ob1-Zn-YQk"/>
+                    <connections>
+                        <outlet property="commentTableView" destination="d3h-nN-1NS" id="Aoi-3j-amM"/>
+                        <outlet property="customNavigationBar" destination="4bq-ro-saH" id="YAr-mY-Kgj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="93.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Tnm-pw-pRl">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="AUG-0s-pSG" customClass="NavigationController" customModule="NaverBlog_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OfC-dW-UoP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="9LB-cq-a96"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gea-M5-ZAU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="93.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <namedColor name="blogGray002">
+            <color red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
