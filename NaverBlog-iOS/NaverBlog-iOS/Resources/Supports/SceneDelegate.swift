@@ -24,11 +24,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        // 승현
 //        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.Feed, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.TabBar)
         
-        // 은서
-        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.Recommend, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Recommend)
-//
-//        // 소연
-//        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.MyPage, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPage)
+//        // 은서
+//        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.Recommend, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Navigation)
+
+        // 소연
+        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.MyPage, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.CustomTabBarController)
         
         window?.makeKeyAndVisible()
     }

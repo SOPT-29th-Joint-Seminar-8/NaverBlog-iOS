@@ -11,6 +11,7 @@ extension Const {
     struct ViewController {
             struct Name {
                 static let TabBar = "TabBarController"
+                static let CustomTabBarController = "CustomTabBarController"
                 static let Navigation = "NavigationController"
                 
                 static let Feed = "FeedVC"
@@ -18,6 +19,7 @@ extension Const {
                 static let Write = "WriteVC"
                 static let Notification = "NotificationVC"
                 static let MyPage = "MyPageVC"
+                static let MyPageDetail = "MyPageDetailVC"
             }
     }
 }
