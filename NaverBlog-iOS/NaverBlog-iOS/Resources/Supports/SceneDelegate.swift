@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
 //        // 승현
-//        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.Feed, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.TabBar)
+//		window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.Feed, bundle: nil).instantiateViewController(withIdentifier: CustomTBC.identifier)
         
 //        // 은서
 //        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.Recommend, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Navigation)
