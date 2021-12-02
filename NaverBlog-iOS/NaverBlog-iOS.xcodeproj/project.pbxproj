@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		188E63C4A32A90F8043CC10D /* Pods_NaverBlog_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472BFDCF3DE63DA9A2B52924 /* Pods_NaverBlog_iOS.framework */; };
 		4F11B7CF2747A96300F2EC0D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F11B7CE2747A96300F2EC0D /* Image.swift */; };
 		4F2AE0352743AFC1006785E4 /* CustomTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2AE0342743AFC1006785E4 /* CustomTBC.swift */; };
 		4F2AE0372743E6D9006785E4 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F2AE0362743E6D9006785E4 /* Notification.storyboard */; };
+		4F7DBEAE2758BA4200E514BC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7DBEAD2758BA4200E514BC /* API.swift */; };
+		4F7DBEB12758BCF000E514BC /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7DBEB02758BCF000E514BC /* NetworkResult.swift */; };
 		4FF6CD71274F93950062A5CB /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6CD70274F93950062A5CB /* FeedManager.swift */; };
 		4FF6CD76274F98070062A5CB /* FeedTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6CD74274F98070062A5CB /* FeedTableHeaderView.swift */; };
 		4FF6CD77274F98070062A5CB /* FeedTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF6CD75274F98070062A5CB /* FeedTableHeaderView.xib */; };
@@ -48,11 +51,6 @@
 		9254468427400E6100EDBD94 /* Recommend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9254468327400E6100EDBD94 /* Recommend.storyboard */; };
 		9254468627400FEF00EDBD94 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9254468527400FEF00EDBD94 /* MyPage.storyboard */; };
 		925446882740FBAE00EDBD94 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925446872740FBAE00EDBD94 /* Images.xcassets */; };
-		E2B3E2652742E23E0087A6AC /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E2642742E23E0087A6AC /* CustomNavigationBar.swift */; };
-		E2FC75B027456B4100D00188 /* CommentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC75AE27456B4100D00188 /* CommentTVC.swift */; };
-		E2FC75B127456B4100D00188 /* CommentTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FC75AF27456B4100D00188 /* CommentTVC.xib */; };
-		E2FC75B42745775000D00188 /* CommentDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC75B32745775000D00188 /* CommentDataModel.swift */; };
-		E2FC75B6274580F300D00188 /* ReplyCommentDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC75B5274580F300D00188 /* ReplyCommentDataModel.swift */; };
 		9254468A2741008500EDBD94 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925446892741008500EDBD94 /* CustomTabBarController.swift */; };
 		9254468F2741017200EDBD94 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254468E2741017200EDBD94 /* UIColor+.swift */; };
 		925446912741064100EDBD94 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925446902741064100EDBD94 /* CALayer+.swift */; };
@@ -68,12 +66,20 @@
 		92B045712742352F0030B923 /* UITabBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B045702742352F0030B923 /* UITabBar+.swift */; };
 		92F57AD72744E27700951E72 /* CustomNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F57AD62744E27700951E72 /* CustomNavigationBarView.swift */; };
 		92F57AD92744E61E00951E72 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F57AD82744E61E00951E72 /* UIViewController+.swift */; };
+		E2B3E2652742E23E0087A6AC /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E2642742E23E0087A6AC /* CustomNavigationBar.swift */; };
+		E2FC75B027456B4100D00188 /* CommentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC75AE27456B4100D00188 /* CommentTVC.swift */; };
+		E2FC75B127456B4100D00188 /* CommentTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FC75AF27456B4100D00188 /* CommentTVC.xib */; };
+		E2FC75B42745775000D00188 /* CommentDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC75B32745775000D00188 /* CommentDataModel.swift */; };
+		E2FC75B6274580F300D00188 /* ReplyCommentDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC75B5274580F300D00188 /* ReplyCommentDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		472BFDCF3DE63DA9A2B52924 /* Pods_NaverBlog_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaverBlog_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F11B7CE2747A96300F2EC0D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		4F2AE0342743AFC1006785E4 /* CustomTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTBC.swift; sourceTree = "<group>"; };
 		4F2AE0362743E6D9006785E4 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		4F7DBEAD2758BA4200E514BC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		4F7DBEB02758BCF000E514BC /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		4FF6CD70274F93950062A5CB /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		4FF6CD74274F98070062A5CB /* FeedTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableHeaderView.swift; sourceTree = "<group>"; };
 		4FF6CD75274F98070062A5CB /* FeedTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableHeaderView.xib; sourceTree = "<group>"; };
@@ -83,6 +89,7 @@
 		4FF6CD85274FB5260062A5CB /* NotificationCenter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+.swift"; sourceTree = "<group>"; };
 		4FF6CD87274FB6800062A5CB /* FeedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedContent.swift; sourceTree = "<group>"; };
 		4FF6CD89274FB8E60062A5CB /* Formatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+.swift"; sourceTree = "<group>"; };
+		59084730DCEC6152C7BAC491 /* Pods-NaverBlog-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaverBlog-iOS.debug.xcconfig"; path = "Target Support Files/Pods-NaverBlog-iOS/Pods-NaverBlog-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		92115B92274368B900379324 /* MyPageDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPageDetail.storyboard; sourceTree = "<group>"; };
 		92115B94274368F200379324 /* MyPageDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDetailVC.swift; sourceTree = "<group>"; };
 		92544633273FF70800EDBD94 /* NaverBlog-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NaverBlog-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,11 +121,6 @@
 		9254468327400E6100EDBD94 /* Recommend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Recommend.storyboard; sourceTree = "<group>"; };
 		9254468527400FEF00EDBD94 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		925446872740FBAE00EDBD94 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		E2B3E2642742E23E0087A6AC /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
-		E2FC75AE27456B4100D00188 /* CommentTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTVC.swift; sourceTree = "<group>"; };
-		E2FC75AF27456B4100D00188 /* CommentTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTVC.xib; sourceTree = "<group>"; };
-		E2FC75B32745775000D00188 /* CommentDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDataModel.swift; sourceTree = "<group>"; };
-		E2FC75B5274580F300D00188 /* ReplyCommentDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCommentDataModel.swift; sourceTree = "<group>"; };
 		925446892741008500EDBD94 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		9254468E2741017200EDBD94 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		925446902741064100EDBD94 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
@@ -134,6 +136,12 @@
 		92B045702742352F0030B923 /* UITabBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+.swift"; sourceTree = "<group>"; };
 		92F57AD62744E27700951E72 /* CustomNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarView.swift; sourceTree = "<group>"; };
 		92F57AD82744E61E00951E72 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		E2B3E2642742E23E0087A6AC /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		E2FC75AE27456B4100D00188 /* CommentTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTVC.swift; sourceTree = "<group>"; };
+		E2FC75AF27456B4100D00188 /* CommentTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTVC.xib; sourceTree = "<group>"; };
+		E2FC75B32745775000D00188 /* CommentDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDataModel.swift; sourceTree = "<group>"; };
+		E2FC75B5274580F300D00188 /* ReplyCommentDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCommentDataModel.swift; sourceTree = "<group>"; };
+		E4713DF8ECB6D03D25AC8E92 /* Pods-NaverBlog-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaverBlog-iOS.release.xcconfig"; path = "Target Support Files/Pods-NaverBlog-iOS/Pods-NaverBlog-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,12 +149,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				188E63C4A32A90F8043CC10D /* Pods_NaverBlog_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		118DE4AF6DA45DFC731A1B33 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59084730DCEC6152C7BAC491 /* Pods-NaverBlog-iOS.debug.xcconfig */,
+				E4713DF8ECB6D03D25AC8E92 /* Pods-NaverBlog-iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		4F2AE0332743AEE5006785E4 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +172,14 @@
 				4F2AE0342743AFC1006785E4 /* CustomTBC.swift */,
 			);
 			path = VCs;
+			sourceTree = "<group>";
+		};
+		4F7DBEAF2758BCE500E514BC /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				4F7DBEB02758BCF000E514BC /* NetworkResult.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		4FF6CD6F274F93310062A5CB /* Models */ = {
@@ -199,6 +225,8 @@
 			children = (
 				92544635273FF70800EDBD94 /* NaverBlog-iOS */,
 				92544634273FF70800EDBD94 /* Products */,
+				118DE4AF6DA45DFC731A1B33 /* Pods */,
+				C8E73C18A30415FCA45F0A08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -237,6 +265,7 @@
 		9254464B273FF71800EDBD94 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4F7DBEAF2758BCE500E514BC /* Enum */,
 				9254468D2741016200EDBD94 /* Extensions */,
 				92544654273FF82800EDBD94 /* Assets */,
 				9254464C273FF77900EDBD94 /* Consts */,
@@ -253,6 +282,7 @@
 				9254464F273FF7C500EDBD94 /* ViewController.swift */,
 				92544651273FF7D400EDBD94 /* Storyboard.swift */,
 				4F11B7CE2747A96300F2EC0D /* Image.swift */,
+				4F7DBEAD2758BA4200E514BC /* API.swift */,
 			);
 			path = Consts;
 			sourceTree = "<group>";
@@ -347,50 +377,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		E2A1F14427465CB700C815E7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E2B3E2642742E23E0087A6AC /* CustomNavigationBar.swift */,
-				E2FC75AD27456B1700D00188 /* Cells */,
-				E2A1F14527465CC000C815E7 /* Storyboards */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		E2A1F14527465CC000C815E7 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				E2FC75AF27456B4100D00188 /* CommentTVC.xib */,
-				9254468327400E6100EDBD94 /* Recommend.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		E2B3E2632742E2210087A6AC /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				92544662273FF99900EDBD94 /* RecommendVC.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		E2FC75AD27456B1700D00188 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				E2FC75AE27456B4100D00188 /* CommentTVC.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		E2FC75B22745770700D00188 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E2FC75B32745775000D00188 /* CommentDataModel.swift */,
-				E2FC75B5274580F300D00188 /* ReplyCommentDataModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		9254468B2741008E00EDBD94 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +450,58 @@
 			path = HeaderViews;
 			sourceTree = "<group>";
 		};
+		C8E73C18A30415FCA45F0A08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				472BFDCF3DE63DA9A2B52924 /* Pods_NaverBlog_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2A1F14427465CB700C815E7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E2B3E2642742E23E0087A6AC /* CustomNavigationBar.swift */,
+				E2FC75AD27456B1700D00188 /* Cells */,
+				E2A1F14527465CC000C815E7 /* Storyboards */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E2A1F14527465CC000C815E7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E2FC75AF27456B4100D00188 /* CommentTVC.xib */,
+				9254468327400E6100EDBD94 /* Recommend.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E2B3E2632742E2210087A6AC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				92544662273FF99900EDBD94 /* RecommendVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E2FC75AD27456B1700D00188 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E2FC75AE27456B4100D00188 /* CommentTVC.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E2FC75B22745770700D00188 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E2FC75B32745775000D00188 /* CommentDataModel.swift */,
+				E2FC75B5274580F300D00188 /* ReplyCommentDataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -471,9 +509,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92544647273FF70A00EDBD94 /* Build configuration list for PBXNativeTarget "NaverBlog-iOS" */;
 			buildPhases = (
+				1988A876AB7BCA1016D3B5AF /* [CP] Check Pods Manifest.lock */,
 				9254462F273FF70800EDBD94 /* Sources */,
 				92544630273FF70800EDBD94 /* Frameworks */,
 				92544631273FF70800EDBD94 /* Resources */,
+				C5CBDEFD9E54644412DA0787 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -551,6 +591,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1988A876AB7BCA1016D3B5AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NaverBlog-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5CBDEFD9E54644412DA0787 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NaverBlog-iOS/Pods-NaverBlog-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NaverBlog-iOS/Pods-NaverBlog-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NaverBlog-iOS/Pods-NaverBlog-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9254462F273FF70800EDBD94 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -562,6 +644,7 @@
 				4F2AE0352743AFC1006785E4 /* CustomTBC.swift in Sources */,
 				92544663273FF99900EDBD94 /* RecommendVC.swift in Sources */,
 				92115B95274368F200379324 /* MyPageDetailVC.swift in Sources */,
+				4F7DBEB12758BCF000E514BC /* NetworkResult.swift in Sources */,
 				92544650273FF7C500EDBD94 /* ViewController.swift in Sources */,
 				4FF6CD86274FB5260062A5CB /* NotificationCenter+.swift in Sources */,
 				E2FC75B42745775000D00188 /* CommentDataModel.swift in Sources */,
@@ -576,6 +659,7 @@
 				925446942741434800EDBD94 /* MyPageDataModel.swift in Sources */,
 				92F57AD72744E27700951E72 /* CustomNavigationBarView.swift in Sources */,
 				92544637273FF70900EDBD94 /* AppDelegate.swift in Sources */,
+				4F7DBEAE2758BA4200E514BC /* API.swift in Sources */,
 				9254466F273FFAFB00EDBD94 /* TabBarController.swift in Sources */,
 				9254468A2741008500EDBD94 /* CustomTabBarController.swift in Sources */,
 				92F57AD92744E61E00951E72 /* UIViewController+.swift in Sources */,
@@ -736,6 +820,7 @@
 		};
 		92544648273FF70A00EDBD94 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59084730DCEC6152C7BAC491 /* Pods-NaverBlog-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -764,6 +849,7 @@
 		};
 		92544649273FF70A00EDBD94 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4713DF8ECB6D03D25AC8E92 /* Pods-NaverBlog-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
