@@ -83,7 +83,7 @@ extension MyPageTVC {
 }
 
 extension MyPageTVC {
-    func initCell(image: String, title: String, content: String, time: String, likeCount: Int, commentCount: Int) {
+    func initCell(image: String, title: String, content: String, time: String, likeCount: Int, commentCount: String) {
         mainImageView.image = UIImage(named: image)
         
         titleLabel.text = title
@@ -94,6 +94,6 @@ extension MyPageTVC {
         likeCountLabel.text = "\(likeCount)"
         self.likeCount = likeCount
         
-        commentCountLabel.text = "\(commentCount)"
+        commentCountLabel.text = commentCount
     }
 }

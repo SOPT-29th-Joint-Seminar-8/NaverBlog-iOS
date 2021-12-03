@@ -51,10 +51,15 @@ class MyPageDetailVC: UIViewController {
     private var replyList = [ReplyDataModel]()
     private var commentList = [MyPageDetailDataModel]()
     
+    private var comments = [MyPageComment]()
+    private var replys = [MyPageComment]()
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        getMyPageDetailData()
         
         NotificationCenter.default.post(name: NSNotification.Name("HiddenWriteTab"), object: nil)
         setNavigationBar()
@@ -219,14 +224,16 @@ extension MyPageDetailVC: UITableViewDelegate {
 
 extension MyPageDetailVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return commentList.count
+        return comments.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if commentList[section].isOpen == true {
-            return commentList[section].reply.count + 1
+        if section == 0 {
+            return comments[section].reply!.count
+        } else if section == 1 {
+            return comments[section].reply!.count
         } else {
-            return 1
+            return comments[section].reply!.count
         }
     }
     
@@ -234,16 +241,15 @@ extension MyPageDetailVC: UITableViewDataSource {
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageDetailTVC", for: indexPath)
                     as? MyPageDetailTVC else { return UITableViewCell() }
-            let data = commentList[indexPath.section]
-            cell.initCell(userImage: data.userImage, userName: data.userName, comment: data.comment, time: data.time, likeCount: data.likeCount)
+            
             cell.emptyViewWidth.constant = 20
             cell.selectionStyle = .none
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageDetailTVC", for: indexPath)
                     as? MyPageDetailTVC else { return UITableViewCell() }
-            let data = commentList[indexPath.section].reply[indexPath.row - 1]
-            cell.initCell(userImage: data.userImage, userName: data.userName, comment: data.comment, time: data.time, likeCount: data.likeCount)
+            let data = comments[indexPath.row]
+            
             cell.emptyViewWidth.constant = 54
             cell.selectionStyle = .none
             return cell
@@ -260,4 +266,30 @@ extension MyPageDetailVC: UITextFieldDelegate {
     }
 }
 
+// MARK: - Networkt
+
+extension MyPageDetailVC {
+    func getMyPageDetailData() {
+        MyPageDetailService.shared.getMyPageDetailInfo(id: 1) { [self]
+                (networkResult) in
+                switch(networkResult) {
+                case .success(let commentResponse):
+                    guard let response = commentResponse as? MyPageDetailResponseModel else { return }
+                    if let commentData = response.data {
+                        self.comments = commentData.comments
+                        setupNavigationBar(customNavigationBarView: self.cutomNavigationBar, title: "글 댓글 \(commentData.commentNum)")
+                        myTableView.reloadData()
+                    }
+                case .networkFail:
+                    print("networkFail")
+                case .pathErr:
+                    print("pathErr")
+                case .requestErr:
+                    print("requestErr")
+                case .serverErr:
+                    print("serverErr")
+                }
+            }
+        }
+}
 
