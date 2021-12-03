@@ -55,6 +55,24 @@ extension FeedManager {
 	}
 }
 
+// MARK: - Send Like to Post Server
+
+extension FeedManager {
+	func sendLikeToServer(_ postId: Int, _ state: Bool) {
+		networkManager.sendLikeToPost(postId: postId, state: state) { [weak self] responseData in
+			switch responseData {
+			case .success(let likeResponseData):
+				guard let likeResponse = likeResponseData as? FeedNetworkModel else { return }
+				NSLog(likeResponse.message)
+				self?.getMainFeed()
+				self?.delegate?.reloadData()
+			default:
+				NSLog("데이터 불러오기 실패")
+			}
+		}
+	}
+}
+
 // MARK: -  FeedTVC
 
 extension FeedManager {

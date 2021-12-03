@@ -39,6 +39,28 @@ struct FeedNetworkManager {
 		}
 	}
 	
+	func sendLikeToPost(postId: Int, state: Bool, completion: @escaping (NetworkResult<Any>) -> Void) {
+		let url = Const.API.sendLikeToPostURL(postId: postId, state: state)
+		let header: HTTPHeaders = [
+			"Content-Type": "application/json",
+		]
+		
+		let dataRequest = AF.request(url, method: .patch, encoding: JSONEncoding.default, headers: header)
+		
+		dataRequest.responseData { dataResponse in
+			switch dataResponse.result {
+			case .success:
+				guard let statusCode = dataResponse.response?.statusCode,
+					  let value = dataResponse.value else { return }
+				
+				let networkResult = self.judgeStatusCode(by: statusCode, value, serviceType: .SendLikeToServer)
+				completion(networkResult)
+			case .failure:
+				completion(.networkFail)
+			}
+		}
+	}
+	
 	private func judgeStatusCode(by statusCode: Int, _ value: Data, serviceType: ServiceType) -> NetworkResult<Any> {
 		switch statusCode {
 		case 200: return isValidData(value, serviceType)
