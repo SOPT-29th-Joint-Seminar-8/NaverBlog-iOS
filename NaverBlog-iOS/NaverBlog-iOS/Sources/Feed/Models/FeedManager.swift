@@ -63,6 +63,7 @@ extension FeedManager {
 			switch responseData {
 			case .success(let likeResponseData):
 				guard let likeResponse = likeResponseData as? FeedNetworkModel else { return }
+				
 				NSLog(likeResponse.message)
 				self?.getMainFeed()
 				self?.delegate?.reloadData()
