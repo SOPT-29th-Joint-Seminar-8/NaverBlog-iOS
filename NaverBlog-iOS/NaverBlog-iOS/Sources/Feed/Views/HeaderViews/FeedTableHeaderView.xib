@@ -243,6 +243,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="blogNameLabel" destination="8Kj-ZU-tnG" id="ALc-wu-FZs"/>
                 <outlet property="blogTitleLabel" destination="PCz-0w-gNR" id="z3D-EH-PuW"/>
                 <outlet property="neighborCountLabel" destination="uKy-cf-Iod" id="eeP-Zg-Q3X"/>
                 <outlet property="neighborLabel" destination="XMs-x4-FVY" id="YAU-A6-IXw"/>

@@ -8,14 +8,12 @@
 import UIKit
 
 struct FeedContent {
+	var id: Int
 	var thumbnailImage: UIImage?
 	var thumbnailDesc: String
 	var title: String
 	var contentUpdatedAt: Date
-	var commentCount: Int
-	var likeCount: Int {
-		didSet {
-			NotificationCenter.default.post(name: .changeLikeCount, object: nil)
-		}
-	}
+	var commentCount: String
+	var isLike: Bool
+	var likeCount: Int
 }
