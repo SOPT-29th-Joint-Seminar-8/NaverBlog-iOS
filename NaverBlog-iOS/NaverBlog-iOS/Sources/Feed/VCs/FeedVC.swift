@@ -26,12 +26,26 @@ class FeedVC: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		self.navigationController?.navigationBar.isHidden = true
+		setUpFeedVC()
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		registerTableViewXib()
+	}
+}
+
+// MARK: - Reload Table View
+
+extension FeedVC: ReloadData {
+	func reloadData() {
+		feedTableView?.reloadData()
+	}
+	
+	func setUpFeedVC() {
+		self.navigationController?.navigationBar.isHidden = true
+		manager.delegate = self
+		manager.getMainFeed()
 	}
 }
 

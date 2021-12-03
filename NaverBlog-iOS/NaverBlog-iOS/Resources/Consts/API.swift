@@ -26,7 +26,7 @@ extension Const {
 		
 		// MARK: - Send Like to Post W/ PETCH
 		
-		static func sendLikeToPostURL(postId: String, state: Bool) -> String {
+		static func sendLikeToPostURL(postId: Int, state: Bool) -> String {
 			return baseURL + "/post/\(postId)/like?state=\(state)"
 		}
 		

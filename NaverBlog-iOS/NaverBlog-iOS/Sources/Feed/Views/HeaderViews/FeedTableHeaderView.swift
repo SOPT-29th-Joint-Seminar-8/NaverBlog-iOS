@@ -18,9 +18,10 @@ class FeedTableHeaderView: UITableViewHeaderFooterView {
 	@IBOutlet weak var blogTitleLabel: UILabel?
 	@IBOutlet weak var neighborLabel: UIImageView?
 	@IBOutlet weak var neighborCountLabel: UILabel?
+	@IBOutlet weak var blogNameLabel: UILabel?
 	
 	// MARK: - Life Cycle
-
+	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 	}
@@ -29,12 +30,13 @@ class FeedTableHeaderView: UITableViewHeaderFooterView {
 extension FeedTableHeaderView {
 	
 	static let identifier = "FeedTableHeaderView"
-
+	
 	func getHeaderConfigureAt() {
-		todayCountLabel?.text = String(manager.headerInfo.todayCount)
-		totalCountLabel?.text = String(manager.headerInfo.totalCount)
-		blogTitleLabel?.text = manager.headerInfo.blogTitle
-		neighborLabel?.image = manager.headerInfo.neighborBadge
-		neighborCountLabel?.text = "\(manager.headerInfo.neighborCount)명의 이웃"
+		todayCountLabel?.text = String(manager.headerInfo?.todayCount ?? 0)
+		totalCountLabel?.text = String(manager.headerInfo?.totalCount ?? 0)
+		blogTitleLabel?.text = manager.headerInfo?.blogTitle
+		neighborLabel?.image = manager.headerInfo?.neighborBadge
+		neighborCountLabel?.text = "\(manager.headerInfo?.neighborCount ?? 0)명의 이웃"
+		blogNameLabel?.text = manager.headerInfo?.userName
 	}
 }

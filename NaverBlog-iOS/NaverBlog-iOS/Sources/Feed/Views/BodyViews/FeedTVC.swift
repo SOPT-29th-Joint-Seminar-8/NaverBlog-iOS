@@ -20,42 +20,38 @@ class FeedTVC: UITableViewCell {
 	@IBOutlet weak var thumbailTimeStampLabel: UILabel?
 	@IBOutlet weak var likeCountLabel: UILabel?
 	@IBOutlet weak var commentCountLabel: UILabel?
-	@IBOutlet weak var likeButton: UIButton? {
-		didSet {
-			// TODO: 서버에서 받은 값으로 likeButton 상태 초기화
-			likeButton?.isSelected = false
-		}
-	}
+	@IBOutlet weak var likeButton: UIButton?
 	
 	// MARK: - Life Cycle
 	
 	override func awakeFromNib() {
-        super.awakeFromNib()
-		addObserver()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
+		super.awakeFromNib()
+	}
 	
-	func addObserver() {
-		NotificationCenter.default.addObserver(self, selector: #selector(changeLikeCountLabel(_:)), name: .changeLikeCount, object: nil)
+	override func setSelected(_ selected: Bool, animated: Bool) {
+		super.setSelected(selected, animated: animated)
 	}
 	
 	@IBAction func likeButtonDidTap(_ sender: Any) {
-		likeButton?.isSelected.toggle()
-		var likeCount = Int(manager.getLikeCount(mangerModelIndex)) ?? 0
-		
 		if let isSelected = likeButton?.isSelected {
-			likeCount = isSelected ? likeCount + 1 : likeCount - 1
-			manager.feedThumbnails[mangerModelIndex].likeCount = likeCount
+			manager.feedThumbnails[mangerModelIndex].isLike = isSelected
+			sendLikeToServer()
 		}
 	}
+}
+
+// MARK: - Send Like To Server
+
+extension FeedTVC: ReloadData {
+	private func sendLikeToServer() {
+		let index = self.mangerModelIndex
+		manager.sendLikeToServer(manager.feedThumbnails[index].id, manager.feedThumbnails[index].isLike)
+	}
 	
-	@objc func changeLikeCountLabel(_ notification: Notification) {
-		DispatchQueue.main.async { [self] in
-			likeCountLabel?.text = String(manager.feedThumbnails[mangerModelIndex].likeCount)
-		}
+	func reloadData() {
+		let index = self.mangerModelIndex
+		likeButton?.isSelected = manager.feedThumbnails[index].isLike
+		likeCountLabel?.text = String(manager.feedThumbnails[index].likeCount)
 	}
 }
 
@@ -71,5 +67,6 @@ extension FeedTVC {
 		thumbailTimeStampLabel?.text = manager.getContentUpdatedAt(index)
 		likeCountLabel?.text = manager.getLikeCount(index)
 		commentCountLabel?.text = manager.getCommentCount(index)
+		likeButton?.isSelected = manager.getLikeStatus(index)
 	}
 }

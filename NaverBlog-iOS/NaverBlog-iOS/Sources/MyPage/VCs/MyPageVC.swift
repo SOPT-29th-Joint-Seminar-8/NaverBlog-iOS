@@ -16,12 +16,16 @@ class MyPageVC: UIViewController {
     // MARK: - Properties
     
     private var myPageList = [MyPageDataModel]()
+    private var myPageLists = [MyPagePost]()
+    
+    private var banner = [MyPageBanner]()
     
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        getMyPageData()
         NotificationCenter.default.post(name: NSNotification.Name("ShowWritTab"), object: nil)
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -49,6 +53,7 @@ extension MyPageVC {
         myTableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         
         myTableView.register(UINib(nibName: MyPageTVC.identifier, bundle: nil), forCellReuseIdentifier: MyPageTVC.identifier)
+        myTableView.register(UINib(nibName: "MyPageTableHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "MyPageTableHeaderView")
     }
     
     private func setData() {
@@ -68,7 +73,8 @@ extension MyPageVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = Bundle.main.loadNibNamed("MyPageTableHeaderView", owner: self, options: nil)?.last as! UIView
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "MyPageTableHeaderView") as! MyPageTableHeaderView
+//        headerView.initHeader(image: banner[0].bannerImage, todayCount: banner[0].todayCount, totalCount: banner[0].totalCount, blogName: banner[0].blogName, profileName: banner[0].profileName, blogCategory: banner[0].blogCategory, neighborNum: banner[0].neighborNum)
         return headerView
     }
     
@@ -81,14 +87,15 @@ extension MyPageVC: UITableViewDelegate {
 
 extension MyPageVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myPageList.count
+        return myPageLists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageTVC.identifier) as? MyPageTVC else {
             return UITableViewCell()
         }
-        cell.initCell(image: myPageList[indexPath.row].image, title: myPageList[indexPath.row].title, content: myPageList[indexPath.row].content, time: myPageList[indexPath.row].time, likeCount: myPageList[indexPath.row].likeCount, commentCount: myPageList[indexPath.row].commentCount)
+        let data = myPageLists[indexPath.row]
+        cell.initCell(image: "imgPost1", title: data.title, content: data.content, time: data.createdAt, likeCount: data.heartNum, commentCount: data.commentNum)
         cell.selectionStyle = .none
         cell.delegate = self
         return cell
@@ -101,5 +108,31 @@ extension MyPageVC: MyPageCellDelegate {
     func pushToDetailVC() {
         let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPageDetail, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPageDetail)
         self.navigationController?.pushViewController(dvc, animated: true)
+    }
+}
+
+// MARK: - Network
+
+extension MyPageVC {
+    func getMyPageData(){
+        MyPageService.shared.getMyPageinfo { (response) in
+            switch(response) {
+            case .success(let mainResponse):
+                guard let response = mainResponse as? MyPageResponseModel else { return }
+                if let mainData = response.data {
+                    self.myPageLists = mainData.posts
+                    self.banner = mainData.banner
+                    self.myTableView.reloadData()
+                }
+            case .requestErr :
+                print("requestERR")
+            case .pathErr :
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }
