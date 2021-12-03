@@ -12,20 +12,19 @@ class RecommendVC: UIViewController {
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     @IBOutlet weak var commentTableView: UITableView!
     
-    var comment: [CommentDataModel] = []
-    var replyComment: [ReplyCommentDataModel] = []
+    var comments: [Comment] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCommentData()
         setupTableView()
         registerCell()
-        setDummyData()
         setNavigationBar()
     }
     
     private func setNavigationBar() {
         self.navigationController?.navigationBar.isHidden = true
-        customNavigationBar.setup(title: "글 댓글", commentCount: comment.count)
+        customNavigationBar.setup(title: "글 댓글", commentCount: comments.count)
     }
 
     private func registerCell() {
@@ -39,21 +38,6 @@ class RecommendVC: UIViewController {
         commentTableView.rowHeight = UITableView.automaticDimension
         commentTableView.estimatedRowHeight = 150
     }
-    
-    private func setDummyData() {
-        comment.append(contentsOf: [
-            CommentDataModel(userProfileImage: "icColorTag", userName: "채채", comment: "디자인 잘 하고 싶다❤️❤️✌️", date: Date(), likeCount: 1, replyCommentData: [
-                ReplyCommentDataModel(userProfileImage: "icColorTag", userName: "종화아", comment: "감사합니다~😘", date: Date(), likeCount: 1),
-            ], isOpen: false),
-            CommentDataModel(userProfileImage: "icColorTag", userName: "솝트 디자인", comment: "홍대입구역 한빛 대관 리더스홀\n(서대문구 연희로2길 76 한빛빌딩)\n시간 : 2시 - 5시 (3시간)", date: Date(), likeCount: 0, replyCommentData: [
-                ReplyCommentDataModel(userProfileImage: "icColorTag", userName: "종화아", comment: "감사합니다~😘", date: Date(), likeCount: 1),
-                ReplyCommentDataModel(userProfileImage: "icColorTag", userName: "채채", comment: "정보 감사합니다 :)", date: Date(), likeCount: 1)
-            ], isOpen: false),
-            CommentDataModel(userProfileImage: "icColorTag", userName: "WE SOPT", comment: "기대가 됩니다!", date: Date(), likeCount: 1, replyCommentData: [
-                ReplyCommentDataModel(userProfileImage: "icColorTag", userName: "이십구기", comment: "화이팅❤️❤️✌️", date: Date(), likeCount: 1)
-            ], isOpen: false)
-        ])
-    }
 }
 
 extension RecommendVC: UITableViewDelegate {
@@ -61,50 +45,72 @@ extension RecommendVC: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.row == 0 {
-            comment[indexPath.section].isOpen.toggle()
+            comments[indexPath.section].isOpen?.toggle()
             tableView.reloadSections([indexPath.section], with: .none)
             guard let currentCell = tableView.cellForRow(at: indexPath) as? CommentTVC else { return }
-            currentCell.setCommentMoreLabel(isOpen: comment[indexPath.section].isOpen)
+            currentCell.setCommentMoreLabel(isOpen: comments[indexPath.section].isOpen ?? false)
         }
     }
 }
 
 extension RecommendVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return comment.count
+        return comments.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRowsInSection = comment[section].isOpen ? comment[section].replyCommentData.count + 1 : 1
+        let numberOfRowsInSection = comments[section].isOpen ?? false ? comments[section].reply.count + 1 : 1
         return numberOfRowsInSection
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CommentTVC.identifier) as? CommentTVC
         else { return UITableViewCell() }
-        let currentComment = comment[indexPath.section]
+        let currentComment = comments[indexPath.section]
         
         if indexPath.row == 0 {
-            cell.setup(userProfileImage: currentComment.userProfileImage,
+            cell.setup(userProfileImage: "icColorTag",
                        userName: currentComment.userName,
-                       comment: currentComment.comment,
-                       date: currentComment.date,
-                       likeCount: currentComment.likeCount,
-                       replyCommentCount: currentComment.replyCommentData.count)
+                       comment: currentComment.content,
+                       date: currentComment.createdAt,
+                       likeCount: currentComment.heartNum,
+                       replyCommentCount: currentComment.reply.count)
             cell.setCommentLeadingLayout(constant: 20)
             
             return cell
         } else {
-            let currentReplyComment = currentComment.replyCommentData[indexPath.row - 1]
-            cell.setup(userProfileImage: currentReplyComment.userProfileImage,
+            let currentReplyComment = currentComment.reply[indexPath.row-1]
+            cell.setup(userProfileImage: "icColorTag",
                        userName: currentReplyComment.userName,
-                       comment: currentReplyComment.comment,
-                       date: currentReplyComment.date,
-                       likeCount: currentReplyComment.likeCount,
+                       comment: currentReplyComment.content,
+                       date: currentReplyComment.createdAt,
+                       likeCount: currentReplyComment.heartNum,
                        replyCommentCount: nil)
             cell.setCommentLeadingLayout(constant: 54)
             
             return cell
+        }
+    }
+}
+
+extension RecommendVC {
+    func getCommentData() {
+        CommentManager.shared.inquiryComment(postId: 1) { responseData in
+            switch responseData {
+            case .success(let commentResponse):
+                guard let response = commentResponse as? CommentResponse else { return }
+                guard let commentData = response.data else { return }
+                self.comments = commentData.comments
+                self.commentTableView.reloadData()
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
         }
     }
 }

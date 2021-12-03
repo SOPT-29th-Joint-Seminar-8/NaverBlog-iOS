@@ -25,7 +25,7 @@ class CommentTVC: UITableViewCell {
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     
-    var isOpen: Bool = false
+    var isOpen: Bool? = false
     var replyCommentCount: Int = 0
     var likeCount: Int = 0
     
@@ -54,13 +54,13 @@ class CommentTVC: UITableViewCell {
     func setup(userProfileImage: String,
                userName: String,
                comment: String,
-               date: Date,
+               date: String,
                likeCount: Int,
                replyCommentCount: Int?) {
         userImageButton.setImage(UIImage(named: userProfileImage), for: .normal)
         userNameLabel.text = userName
         commentLabel.text = comment
-        dateLabel.text = dateFormatter.string(from: date)
+        dateLabel.text = date
         if let replyCommentCount = replyCommentCount {
             commentMoreLabel.text = "답글 \(replyCommentCount)개 보기"
         } else {

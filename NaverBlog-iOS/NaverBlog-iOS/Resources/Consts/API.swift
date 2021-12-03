@@ -21,7 +21,7 @@ extension Const {
 		// MARK: - Get Post's Comments W/ GET
 		
 		static func getPostCommentsURL(postId: String) -> String {
-			return baseURL + "/post/\(postId)/comments"
+			return baseURL + "/comment/\(postId)"
 		}
 		
 		// MARK: - Send Like to Post W/ PETCH
